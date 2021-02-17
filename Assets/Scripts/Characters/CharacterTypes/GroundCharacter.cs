@@ -34,11 +34,11 @@ namespace Characters.CharacterTypes
 
         public override void NormalMovement()
         {
-            m_RunManager.DefaultRunSpeed();
-            m_JumpManager.DefaultJumpForce();
+            m_RunManager.SetDefaultRunSpeed();
+            m_JumpManager.SetDefaultJumpForce();
         }
 
-        public override float Direction() => m_RunManager.Direction();
+        public override float Direction() => m_RunManager.GetDirection();
 
     }
 }

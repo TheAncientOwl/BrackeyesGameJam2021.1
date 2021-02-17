@@ -6,7 +6,7 @@ namespace Characters.Movement
     {
         [SerializeField] private float m_JumpForce = 7f;
         [SerializeField] private float m_GroundCheckOffset = 0f;
-        [SerializeField] private float m_BoxCastSize = 0.5f;
+        [SerializeField] private float m_BoxCastHeight = 0.5f;
         [SerializeField] private LayerMask m_GroundLayerMask = 0;
 
         private Rigidbody2D m_Rigidbody2D;
@@ -21,12 +21,14 @@ namespace Characters.Movement
         private float m_JumpBuffer = 0f;
 
         private float BACKUP_JUMP_FORCE = 0f;
+        private Vector2 BOX_CAST_SIZE = Vector2.zero;
 
         private void Start()
         {
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_BoxCollider2D = GetComponent<BoxCollider2D>();
             this.BACKUP_JUMP_FORCE = m_JumpForce;
+            this.BOX_CAST_SIZE = new Vector2(m_BoxCollider2D.bounds.size.x, m_BoxCastHeight);
         }
 
         private void Update()
@@ -35,10 +37,10 @@ namespace Characters.Movement
 
             m_JumpBuffer = Input.GetKeyDown(KeyCode.W) ? JUMP_BUFFER : m_JumpBuffer - Time.deltaTime;
 
-            if(m_JumpBuffer > 0f)
+            if (m_JumpBuffer > 0f) 
             {
                 m_JumpBuffer = 0f;
-                if(m_GroundedBuffer > 0f)
+                if (m_GroundedBuffer > 0f) 
                 {
                     m_Grounded = false;
                     m_GroundedBuffer = 0f;
@@ -49,16 +51,16 @@ namespace Characters.Movement
 
         private void FixedUpdate()
         {
-            if(m_Rigidbody2D.velocity.y < 1f)
+            if (m_Rigidbody2D.velocity.y < 1f) 
             {
                 m_Grounded = Physics2D.BoxCast
                 (
-                    origin: (Vector2)m_BoxCollider2D.bounds.center - new Vector2(0f, m_GroundCheckOffset),
-                    size: new Vector2(m_BoxCollider2D.bounds.size.x, m_BoxCastSize),
-                    layerMask: m_GroundLayerMask,
-                    direction: Vector2.down,
-                    distance: 0f,
-                    angle: 0f
+                    origin    : (Vector2)m_BoxCollider2D.bounds.center - new Vector2(0f, m_GroundCheckOffset),
+                    size      : this.BOX_CAST_SIZE,
+                    layerMask : m_GroundLayerMask,
+                    direction : Vector2.down,
+                    distance  : 0f,
+                    angle     : 0f
                 ).collider != null;
             }
         }
@@ -67,22 +69,12 @@ namespace Characters.Movement
         {
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
 
-            RaycastHit2D hit = Physics2D.BoxCast
-            (
-                origin: (Vector2)boxCollider2D.bounds.center - new Vector2(0f, m_GroundCheckOffset),
-                size: new Vector2(boxCollider2D.bounds.size.x, m_BoxCastSize),
-                layerMask: m_GroundLayerMask,
-                direction: Vector2.down,
-                distance: 0f,
-                angle: 0f
-            );
-
-            Gizmos.color = hit ? Color.yellow : Color.red;
+            Gizmos.color = Color.red;
 
             Gizmos.DrawWireCube
             (
                 center: boxCollider2D.bounds.center - new Vector3(0f, m_GroundCheckOffset),
-                size: new Vector3(boxCollider2D.bounds.size.x, m_BoxCastSize)
+                size: new Vector3(boxCollider2D.bounds.size.x, m_BoxCastHeight)
             );
         }
 
@@ -93,14 +85,8 @@ namespace Characters.Movement
             m_Rigidbody2D.velocity = Vector2.zero;
         }
 
-        public void SetJumpForce(float jumpForce)
-        {
-            m_JumpForce = jumpForce;
-        }
+        public void SetJumpForce(float jumpForce) => m_JumpForce = jumpForce;
 
-        public void DefaultJumpForce()
-        {
-            m_JumpForce = this.BACKUP_JUMP_FORCE;
-        }
+        public void SetDefaultJumpForce() => m_JumpForce = this.BACKUP_JUMP_FORCE;
     }
 }

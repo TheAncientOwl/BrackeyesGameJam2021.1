@@ -15,9 +15,9 @@ namespace Characters.CharacterTypes
 
         public override void CommonMovement(Commons commons) => m_FlyManager.SetSpeed(commons.flySpeed);
 
-        public override void NormalMovement() => m_FlyManager.DefaultSpeed();
+        public override void NormalMovement() => m_FlyManager.SetDefaultSpeed();
 
-        public override float Direction() => m_FlyManager.HorizontalDirection();
+        public override float Direction() => m_FlyManager.GetHorizontalDirection();
 
     }
 }

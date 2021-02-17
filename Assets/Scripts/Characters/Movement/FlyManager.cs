@@ -50,19 +50,10 @@ namespace Characters.Movement
             m_Rigidbody2D.velocity = Vector2.zero;
         }
 
-        public void SetSpeed(Vector2 speed)
-        {
-            m_Speed = speed;
-        }
+        public void SetSpeed(Vector2 speed) => m_Speed = speed;
 
-        public void DefaultSpeed()
-        {
-            m_Speed = this.BACKUP_SPEED;
-        }
+        public void SetDefaultSpeed() => m_Speed = this.BACKUP_SPEED;
 
-        public float HorizontalDirection()
-        {
-            return m_Direction.x;
-        }
+        public float GetHorizontalDirection() => m_Direction.x;
     }
 }
