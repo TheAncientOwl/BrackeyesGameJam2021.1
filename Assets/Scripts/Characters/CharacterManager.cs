@@ -5,14 +5,14 @@ namespace Characters.CharacterTypes
 {
     public class CharacterManager : MonoBehaviour
     {
-        [SerializeField] private RobinHood m_RobinHood;
-        [SerializeField] private Gorilla m_Gorilla;
-        [SerializeField] private AppleTree m_AppleTree;
-        [SerializeField] private Cloud m_Cloud;
-        [SerializeField] private FireFly m_FireFly;
-        [SerializeField] private Bird m_Bird;
+        [SerializeField] private RobinHood m_RobinHood = null;
+        [SerializeField] private Gorilla m_Gorilla = null;
+        [SerializeField] private AppleTree m_AppleTree = null;
+        [SerializeField] private Cloud m_Cloud = null;
+        [SerializeField] private FireFly m_FireFly = null;
+        [SerializeField] private Bird m_Bird = null;
 
-        [SerializeField] private Commons m_Commons;
+        [SerializeField] private Commons m_Commons = null;
 
         private Character[] m_Characters;
 

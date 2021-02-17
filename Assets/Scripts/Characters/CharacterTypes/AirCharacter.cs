@@ -7,7 +7,7 @@ namespace Characters.CharacterTypes
     {
         protected FlyManager m_FlyManager;
 
-        new private void Start()
+        new protected void Start()
         {
             base.Start();
             m_FlyManager = GetComponent<FlyManager>();
