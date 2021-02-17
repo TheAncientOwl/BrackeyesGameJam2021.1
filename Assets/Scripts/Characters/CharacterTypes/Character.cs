@@ -7,6 +7,8 @@ namespace Characters.CharacterTypes
         protected Rigidbody2D m_Rigidbody2D;
         protected Animator m_Animator;
 
+        [SerializeField] private bool m_IsMain = false;
+
         protected void Start()
         {
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -18,6 +20,10 @@ namespace Characters.CharacterTypes
         public Vector2 GetVelocity() => m_Rigidbody2D.velocity;
 
         public Vector2 GetNormalizedVelocity() => m_Rigidbody2D.velocity.normalized;
+
+        public void SetMain(bool main) => m_IsMain = main;
+
+        public bool IsMain() => m_IsMain;
 
         public abstract void EnableMovement();
         public abstract void DisableMovement();
