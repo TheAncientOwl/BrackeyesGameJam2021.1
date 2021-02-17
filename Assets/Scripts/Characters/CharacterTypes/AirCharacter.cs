@@ -7,7 +7,11 @@ namespace Characters.CharacterTypes
     {
         protected FlyManager m_FlyManager;
 
-        private void Start() => m_FlyManager = GetComponent<FlyManager>();
+        new private void Start()
+        {
+            base.Start();
+            m_FlyManager = GetComponent<FlyManager>();
+        }
 
         public override void EnableMovement() => m_FlyManager.enabled = true;
 

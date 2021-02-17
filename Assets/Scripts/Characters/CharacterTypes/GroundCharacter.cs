@@ -8,8 +8,9 @@ namespace Characters.CharacterTypes
         protected RunManager m_RunManager;
         protected JumpManager m_JumpManager;
 
-        private void Start()
+        new private void Start()
         {
+            base.Start();
             m_RunManager = GetComponent<RunManager>();
             m_JumpManager = GetComponent<JumpManager>();
         }
