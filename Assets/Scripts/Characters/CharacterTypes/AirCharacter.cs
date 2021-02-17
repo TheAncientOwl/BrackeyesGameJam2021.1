@@ -13,11 +13,11 @@ namespace Characters.CharacterTypes
 
         public override void DisableMovement() => m_FlyManager.enabled = false;
 
-        public override void CommonMovement(Commons commons) => m_FlyManager.SetSpeed(commons.flySpeed);
+        public override void SetCommonMovement(Commons commons) => m_FlyManager.SetSpeed(commons.flySpeed);
 
-        public override void NormalMovement() => m_FlyManager.SetDefaultSpeed();
+        public override void SetNormalMovement() => m_FlyManager.SetDefaultSpeed();
 
-        public override float Direction() => m_FlyManager.GetHorizontalDirection();
+        public override float GetHorizontalDirection() => m_FlyManager.GetHorizontalDirection();
 
     }
 }

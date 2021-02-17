@@ -45,7 +45,7 @@ namespace Characters.CharacterTypes
         {
             foreach(var character in m_Characters)
             {
-                character.CommonMovement(m_Commons);
+                character.SetCommonMovement(m_Commons);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Characters.CharacterTypes
         {
             foreach(var character in m_Characters)
             {
-                character.NormalMovement();
+                character.SetNormalMovement();
             }
         }
 

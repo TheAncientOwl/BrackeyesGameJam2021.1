@@ -26,19 +26,19 @@ namespace Characters.CharacterTypes
             m_JumpManager.enabled = false;
         }
 
-        public override void CommonMovement(Commons commons)
+        public override void SetCommonMovement(Commons commons)
         {
             m_RunManager.SetRunSpeed(commons.runSpeed);
             m_JumpManager.SetJumpForce(commons.jumpForce);
         }
 
-        public override void NormalMovement()
+        public override void SetNormalMovement()
         {
             m_RunManager.SetDefaultRunSpeed();
             m_JumpManager.SetDefaultJumpForce();
         }
 
-        public override float Direction() => m_RunManager.GetDirection();
+        public override float GetHorizontalDirection() => m_RunManager.GetDirection();
 
     }
 }

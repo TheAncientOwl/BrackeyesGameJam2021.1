@@ -12,7 +12,7 @@ namespace Characters.Movement
 
         private void FixedUpdate()
         {
-            if ((m_Character.Direction() > 0f && !m_FacingRight) || (m_Character.Direction() < 0f && m_FacingRight)) 
+            if ((m_Character.GetHorizontalDirection() > 0f && !m_FacingRight) || (m_Character.GetHorizontalDirection() < 0f && m_FacingRight)) 
             {
                 m_FacingRight = !m_FacingRight;
                 Vector3 scale = transform.localScale;

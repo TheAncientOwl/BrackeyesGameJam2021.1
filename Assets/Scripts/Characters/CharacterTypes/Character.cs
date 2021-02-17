@@ -6,8 +6,8 @@ namespace Characters.CharacterTypes
     {
         public abstract void EnableMovement();
         public abstract void DisableMovement();
-        public abstract void CommonMovement(Commons commons);
-        public abstract void NormalMovement();
-        public abstract float Direction();
+        public abstract void SetCommonMovement(Commons commons);
+        public abstract void SetNormalMovement();
+        public abstract float GetHorizontalDirection();
     }
 }
