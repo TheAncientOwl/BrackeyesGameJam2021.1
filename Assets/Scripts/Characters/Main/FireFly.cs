@@ -1,9 +1,9 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters
+namespace Characters.Main
 {
-    public class Bird : AirCharacter
+    public class FireFly : AirCharacter
     {
 
     }

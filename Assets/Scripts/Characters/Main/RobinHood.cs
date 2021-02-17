@@ -1,7 +1,7 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters
+namespace Characters.Main
 {
     public class RobinHood : GroundCharacter
     {

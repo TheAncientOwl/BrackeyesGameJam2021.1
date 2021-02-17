@@ -1,19 +1,24 @@
 using UnityEngine;
+using Characters.CharacterTypes;
 
 namespace Characters.Movement
 {
     public class SpriteFlipper : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private Character m_Character;
+        private bool m_FacingRight = true;
+
+        private void Start() => m_Character = GetComponent<Character>();
+
+        private void FixedUpdate()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            if ((m_Character.Direction() > 0f && !m_FacingRight) || (m_Character.Direction() < 0f && m_FacingRight)) 
+            {
+                m_FacingRight = !m_FacingRight;
+                Vector3 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
         }
     }
 }
