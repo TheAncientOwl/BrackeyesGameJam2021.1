@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Characters.Movement
 {
-    class JumpManager : MonoBehaviour
+    public class JumpManager : MonoBehaviour
     {
         [SerializeField] private float m_JumpForce = 7f;
         [SerializeField] private float m_GroundCheckOffset = 0f;

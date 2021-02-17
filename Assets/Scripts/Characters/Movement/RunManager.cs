@@ -52,5 +52,10 @@ namespace Characters.Movement
         {
             m_RunSpeed = this.BACKUP_RUN_SPEED;
         }
+
+        public float Direction()
+        {
+            return m_Direction;
+        }
     }
 }

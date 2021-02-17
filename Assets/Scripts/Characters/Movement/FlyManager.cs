@@ -59,5 +59,10 @@ namespace Characters.Movement
         {
             m_Speed = this.BACKUP_SPEED;
         }
+
+        public float HorizontalDirection()
+        {
+            return m_Direction.x;
+        }
     }
 }
