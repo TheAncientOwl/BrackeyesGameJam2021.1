@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Characters.CharacterTypes;
 
@@ -9,31 +10,37 @@ namespace Characters.Main.Bird
         private static readonly int s_IDLE = Animator.StringToHash("Idle");
         private static readonly int s_Walk = Animator.StringToHash("Walk");
 
+        private const float MINIMIZE_FACTOR = 4f;
+
         [SerializeField] private LayerMask m_GroundLayerMask = 0;
         [SerializeField] private GameObject m_GroundCheckPoint = null;
-        [SerializeField] private Vector2 m_GroundCheckSize = new Vector2(0f, 0f);
+        [SerializeField] private Vector2 m_GroundCheckSize = Vector2.zero;
 
-        [SerializeField] private Vector2 m_FlyBoxColliderSize = new Vector2(0f, 0f);
-        [SerializeField] private Vector2 m_FlyBoxColliderOffset = new Vector2(0f, 0f);
-        [SerializeField] private Vector2 m_GroundBoxColliderSize = new Vector2(0f, 0f);
-        [SerializeField] private Vector2 m_GroundBoxColliderOffset = new Vector2(0f, 0f);
+        [SerializeField] private Vector2 m_FlyBoxColliderSize = Vector2.zero;
+        [SerializeField] private Vector2 m_FlyBoxColliderOffset = Vector2.zero;
+        [SerializeField] private Vector2 m_GroundBoxColliderSize = Vector2.zero;
+        [SerializeField] private Vector2 m_GroundBoxColliderOffset = Vector2.zero;
+
+        [SerializeField] private float m_PlaneModeCheckRadius = 0f;
+        [SerializeField] private LayerMask m_CharacterLayerMask = 0;
+        [SerializeField] private GameObject m_CharacterManager;
+        [SerializeField] private Transform m_PlanePoint;
+        private LinkedList<GameObject> m_Characters = new LinkedList<GameObject>();
+        private bool m_PlaneMode = false;
 
         private BirdState m_State = BirdState.InAir;
 
-        private AirHandler m_AirHandler;
-        private GroundHandler m_GroundHandler;
+        private AirHandler m_AirHandler = new AirHandler();
+        private GroundHandler m_GroundHandler = new GroundHandler();
 
         private BoxCollider2D m_BoxCollider2D;
         
         new private void Awake()
         {
             base.Awake();
-            m_AirHandler = new AirHandler();
+
             m_AirHandler.Init(this);
-
-            m_GroundHandler = new GroundHandler();
             m_GroundHandler.Init(this);
-
             m_GroundHandler.Disable();
 
             m_BoxCollider2D = GetComponent<BoxCollider2D>();
@@ -42,12 +49,33 @@ namespace Characters.Main.Bird
         private void Update()
         {
             CheckFly();
+            if (m_IsMain && Input.GetKeyDown(KeyCode.Space))
+            {
+                m_PlaneMode = !m_PlaneMode;
+                if (m_PlaneMode)
+                    CollectCharacters();
+                else
+                    ReleaseCharacters();
+            }
         }
 
         private void FixedUpdate()
         {
             CheckGrounded();
             SetAnimation();
+        }
+
+        private void CheckFly()
+        {
+            if (Input.GetKeyDown(KeyCode.W) && m_State == BirdState.Grounded && !m_GroundHandler.JumpManager.IsGrounded())
+            {
+                m_State = BirdState.InAir;
+                m_GroundHandler.Disable();
+                m_AirHandler.Enable();
+                m_Rigidbody2D.gravityScale = 0f;
+                m_BoxCollider2D.size = m_FlyBoxColliderSize;
+                m_BoxCollider2D.offset = m_FlyBoxColliderOffset;
+            }
         }
 
         private void CheckGrounded()
@@ -74,6 +102,38 @@ namespace Characters.Main.Bird
                     m_BoxCollider2D.offset = m_GroundBoxColliderOffset;
                 }
             }
+        }
+
+        private void CollectCharacters()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(m_BoxCollider2D.bounds.center, m_PlaneModeCheckRadius, m_CharacterLayerMask);
+
+            if (colliders.Length > 0)
+            {
+                foreach (var character in colliders)
+                {
+                    GameObject obj = character.gameObject;
+                    if (obj != this.gameObject)
+                    {
+                        m_Characters.AddLast(obj);
+                        obj.transform.localScale /= MINIMIZE_FACTOR;
+                        obj.transform.position = m_PlanePoint.position + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.1f, 0.1f));
+                        obj.transform.SetParent(this.transform);
+                        obj.GetComponent<Rigidbody2D>().isKinematic = true;
+                    }
+                }
+            }
+        }
+
+        private void ReleaseCharacters()
+        {
+            foreach (var character in m_Characters)
+            {
+                character.transform.localScale *= MINIMIZE_FACTOR;
+                character.transform.SetParent(m_CharacterManager.transform);
+                character.GetComponent<Rigidbody2D>().isKinematic = false;
+            }
+            m_Characters.Clear();
         }
 
         private void SetAnimation()
@@ -105,22 +165,10 @@ namespace Characters.Main.Bird
             }
         }
 
-        private void CheckFly()
-        {
-            if (Input.GetKeyDown(KeyCode.W) && m_State == BirdState.Grounded && !m_GroundHandler.JumpManager.IsGrounded())
-            {
-                m_State = BirdState.InAir;
-                m_GroundHandler.Disable();
-                m_AirHandler.Enable();
-                m_Rigidbody2D.gravityScale = 0f;
-                m_BoxCollider2D.size = m_FlyBoxColliderSize;
-                m_BoxCollider2D.offset = m_FlyBoxColliderOffset;
-            }
-        }
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(GetComponent<BoxCollider2D>().bounds.center, m_PlaneModeCheckRadius);
             Gizmos.DrawWireCube(m_GroundCheckPoint.transform.position, m_GroundCheckSize);
         }
 

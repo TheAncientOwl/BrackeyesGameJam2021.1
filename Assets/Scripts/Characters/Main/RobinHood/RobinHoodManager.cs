@@ -12,28 +12,39 @@ namespace Characters.Main.RobinHood
         private static readonly int s_JUMP  = Animator.StringToHash("Jump");
         private static readonly int s_FALL  = Animator.StringToHash("Fall");
 
-        private bool m_Shooting = false;
+        [SerializeField] private GameObject m_Bow;
+        private bool m_ShootMode = false;
+
+        private void Start()
+        {
+            m_Bow.SetActive(false);
+        }
 
         private void Update()
         {
             if (m_IsMain)
             {
-                if (m_Shooting)
+                if (Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0)
                 {
-
-                }
-                else
-                {
-                    m_Animator.SetBool(s_JUMP, m_Rigidbody2D.velocity.y > 0f);
-                    m_Animator.SetBool(s_FALL, m_Rigidbody2D.velocity.y < 0f);
-                    m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
-                    m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
+                    m_ShootMode = !m_ShootMode;
+                    m_Bow.SetActive(m_ShootMode);
+                    if (m_ShootMode)
+                        DisableMovement();
+                    else
+                        EnableMovement();
                 }
             }
+            m_Animator.SetBool(s_JUMP, m_Rigidbody2D.velocity.y > 0f);
+            m_Animator.SetBool(s_FALL, m_Rigidbody2D.velocity.y < 0f);
+            m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
+            m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
+            m_Animator.SetBool(s_SHOOT, m_ShootMode);
         }
 
         public override void DisableSpecialMechanics()
         {
+            m_ShootMode = false;
+            m_Bow.SetActive(false);
         }
 
         public override void EnableSpecialMechanics()

@@ -21,13 +21,13 @@ namespace Characters.CharacterTypes
         {
             if (main)
             {
-                EnableMovement();
                 EnableSpecialMechanics();
+                EnableMovement();
             }
             else
             {
-                DisableMovement();
                 DisableSpecialMechanics();
+                DisableMovement();
             }
             m_IsMain = main;
         }

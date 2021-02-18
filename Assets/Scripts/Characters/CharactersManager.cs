@@ -109,6 +109,7 @@ namespace Characters
             m_Together = true;
             foreach(var character in m_Characters)
             {
+                character.DisableSpecialMechanics();
                 character.EnableMovement();
                 character.SetCommonMovement(m_Commons);
             }
