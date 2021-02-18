@@ -5,6 +5,7 @@ namespace Characters.Movement
     public class JumpManager : MonoBehaviour
     {
         [SerializeField] private float m_JumpForce = 7f;
+        [SerializeField] private float m_DoubleJumpForce = 6f;
         [SerializeField] private float m_GroundCheckOffset = 0f;
         [SerializeField] private float m_BoxCastHeight = 0.5f;
         [SerializeField] private LayerMask m_GroundLayerMask = 0;
@@ -23,7 +24,7 @@ namespace Characters.Movement
         private float BACKUP_JUMP_FORCE = 0f;
         private Vector2 BOX_CAST_SIZE = Vector2.zero;
 
-        private bool m_Jumped = false;
+        private bool m_CanDoubleJump = false;
 
         private void Start()
         {
@@ -39,16 +40,11 @@ namespace Characters.Movement
 
             m_JumpBuffer = Input.GetKeyDown(KeyCode.W) ? JUMP_BUFFER : m_JumpBuffer - Time.deltaTime;
 
-            if (m_JumpBuffer > 0f) 
+            if (m_JumpBuffer > 0f)
             {
                 m_JumpBuffer = 0f;
-                if (m_GroundedBuffer > 0f) 
-                {
-                    m_Grounded = false;
-                    m_GroundedBuffer = 0f;
-                    Jump();
-                    m_Jumped = true;
-                }
+                if (m_GroundedBuffer > 0f) Jump();
+                else if (m_CanDoubleJump)  DoubleJump();
             }
         }
 
@@ -65,9 +61,6 @@ namespace Characters.Movement
                     distance  : 0f,
                     angle     : 0f
                 ).collider != null;
-
-                if (m_Grounded)
-                    m_Jumped = false;
             }
         }
 
@@ -88,11 +81,22 @@ namespace Characters.Movement
         {
             m_GroundedBuffer = 0f;
             m_JumpBuffer = 0f;
+            m_CanDoubleJump = false;
         }
 
-        public void Jump() => m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+        private void Jump()
+        {
+            m_Grounded = false;
+            m_GroundedBuffer = 0f;
+            m_CanDoubleJump = true;
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+        }
 
-        public bool Jumped() => m_Jumped;
+        private void DoubleJump()
+        {
+            m_CanDoubleJump = false;
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_DoubleJumpForce);
+        }
 
         public void SetJumpForce(float jumpForce) => m_JumpForce = jumpForce;
 

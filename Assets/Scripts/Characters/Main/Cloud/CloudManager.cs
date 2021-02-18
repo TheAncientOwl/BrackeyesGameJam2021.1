@@ -1,19 +1,17 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters.Main
+namespace Characters.Main.Cloud
 {
-    public class Cloud : AirCharacter
+    public class CloudManager : AirCharacter
     {
         private static readonly int s_IDLE            = Animator.StringToHash("Idle");
         private static readonly int s_VERTICAL_MOVE   = Animator.StringToHash("VerticalMove");
         private static readonly int s_HORIZONTAL_MOVE = Animator.StringToHash("HorizontalMove");
         private int m_LastHash = 0;
 
-        new private void Start()
+        private void Start()
         {
-            base.Start();
-
             m_LastHash = m_Rigidbody2D.velocity.normalized.y != 0f ? s_VERTICAL_MOVE : (GetHorizontalDirection() == 0f ? s_IDLE : s_HORIZONTAL_MOVE);
             m_Animator.SetBool(m_LastHash, true);
         }
@@ -30,9 +28,12 @@ namespace Characters.Main
             }
         }
 
-        public override void SetMain(bool main)
+        public override void DisableSpecialMechanics()
         {
-            throw new System.NotImplementedException();
+        }
+
+        public override void EnableSpecialMechanics()
+        {
         }
     }
 }

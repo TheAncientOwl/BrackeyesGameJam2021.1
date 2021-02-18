@@ -1,10 +1,9 @@
 using UnityEngine;
 using Characters.CharacterTypes;
-using Characters.Main.BirdUtils;
 
-namespace Characters.Main
+namespace Characters.Main.Bird
 {
-    public class Bird : Character
+    public class BirdManager : Character
     {
         private static readonly int s_FLY  = Animator.StringToHash("Fly");
         private static readonly int s_IDLE = Animator.StringToHash("Idle");
@@ -26,12 +25,13 @@ namespace Characters.Main
 
         private BoxCollider2D m_BoxCollider2D;
 
-        new private void Start()
+        private void Start()
         {
-            base.Start();
+            m_AirHandler = new AirHandler();
+            m_AirHandler.Init(this);
 
-            m_AirHandler = new AirHandler(this);
-            m_GroundHandler = new GroundHandler(this);
+            m_GroundHandler = new GroundHandler();
+            m_GroundHandler.Init(this);
 
             m_GroundHandler.Disable();
 
@@ -169,18 +169,12 @@ namespace Characters.Main
             return 0f;
         }
 
-        public override void SetMain(bool main)
+        public override void DisableSpecialMechanics()
         {
-            m_IsMain = main;
-            if (main)
-            {
-                EnableMovement();
-            }
-            else
-            {
-                DisableMovement();
-            }
         }
 
+        public override void EnableSpecialMechanics()
+        {
+        }
     }
 }

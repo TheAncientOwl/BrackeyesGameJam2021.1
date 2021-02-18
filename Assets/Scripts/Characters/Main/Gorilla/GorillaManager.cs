@@ -1,9 +1,9 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters.Main
+namespace Characters.Main.Gorilla
 {
-    public class Gorilla : GroundCharacter
+    public class GorillaManager : GroundCharacter
     {
         private static readonly int s_WALK = Animator.StringToHash("Walk");
         private static readonly int s_IN_AIR = Animator.StringToHash("InAir");
@@ -14,7 +14,7 @@ namespace Characters.Main
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && m_IsMain)
             {
                 m_Animator.SetTrigger(m_LeftPunch ? s_LEFT_PUNCH : s_RIGHT_PUNCH);
                 m_LeftPunch = !m_LeftPunch;
@@ -27,9 +27,12 @@ namespace Characters.Main
             m_Animator.SetBool(s_IN_AIR, m_Rigidbody2D.velocity.normalized.y != 0f);
         }
 
-        public override void SetMain(bool main)
+        public override void DisableSpecialMechanics()
         {
-            throw new System.NotImplementedException();
+        }
+
+        public override void EnableSpecialMechanics()
+        {
         }
     }
 }

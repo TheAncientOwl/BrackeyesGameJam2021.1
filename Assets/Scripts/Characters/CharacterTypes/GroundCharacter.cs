@@ -4,12 +4,12 @@ namespace Characters.CharacterTypes
 {
     public abstract class GroundCharacter : Character
     {
-        protected GroundHandler m_GroundHandler;
+        protected GroundHandler m_GroundHandler = new GroundHandler();
 
-        new protected void Start()
+        new protected void Awake()
         {
-            base.Start();
-            m_GroundHandler = new GroundHandler(this);
+            base.Awake();
+            m_GroundHandler.Init(this);
         }
 
         public override void EnableMovement() => m_GroundHandler.Enable();

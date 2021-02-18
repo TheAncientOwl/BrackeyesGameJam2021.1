@@ -1,7 +1,7 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters.Main.AppleTreeUtils
+namespace Characters.Main.AppleTree
 {
     public class VariantChooser : MonoBehaviour
     {

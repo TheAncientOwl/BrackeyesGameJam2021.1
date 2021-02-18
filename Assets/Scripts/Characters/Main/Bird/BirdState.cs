@@ -1,4 +1,4 @@
-namespace Characters.Main.BirdUtils
+namespace Characters.Main.Bird
 {
     public enum BirdState
     {

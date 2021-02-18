@@ -4,12 +4,12 @@ namespace Characters.CharacterTypes
 {
     public abstract class AirCharacter : Character
     {
-        protected AirHandler m_AirHandler;
+        protected AirHandler m_AirHandler = new AirHandler();
 
-        new protected void Start()
+        new protected void Awake()
         {
-            base.Start();
-            m_AirHandler = new AirHandler(this);
+            base.Awake();
+            m_AirHandler.Init(this);
         }
 
         public override void EnableMovement() => m_AirHandler.Enable();

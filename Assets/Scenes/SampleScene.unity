@@ -176,7 +176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &224245294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 8
+  m_DoubleJumpForce: 6
   m_GroundCheckOffset: 0.9
   m_BoxCastHeight: 0.1
   m_GroundLayerMask:
@@ -333,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb5f98d656444747a0a05cc26ab6656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
 --- !u!95 &224245301
 Animator:
   serializedVersion: 3
@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 5
+  m_DoubleJumpForce: 6
   m_GroundCheckOffset: 0.8
   m_BoxCastHeight: 0.1
   m_GroundLayerMask:
@@ -628,7 +629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7fcc59e2d54047bb8298feaf8fa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
 --- !u!114 &577250765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &603820803
 Transform:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OnCartVariant: {fileID: 577250757}
   m_OnGroundVariant: {fileID: 1152964136}
-  m_Character: {fileID: 577250764}
+  m_Character: {fileID: 0}
   m_CheckOffset: 0.8
   m_CheckDepth: 0.1
   m_PlantLayerMask:
@@ -1142,7 +1142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171420862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.48, y: -1.13, z: 0}
+  m_LocalPosition: {x: -2.01, y: -0.96, z: 0}
   m_LocalScale: {x: 4.0774, y: 3.2475338, z: 1}
   m_Children:
   - {fileID: 165791056}
@@ -1196,7 +1196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1ae536e625b1d4394f58b25ac27540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
   m_GroundLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -1250,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 7
+  m_DoubleJumpForce: 6
   m_GroundCheckOffset: 0.48
   m_BoxCastHeight: 0.11
   m_GroundLayerMask:
@@ -1317,7 +1317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1192288522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,7 +1456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963b49e02bf81444fa050d00ff1fbb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
 --- !u!95 &1192288528
 Animator:
   serializedVersion: 3
@@ -1617,7 +1616,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1329075015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,7 +1727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329075014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.63, y: -0.28, z: 0}
+  m_LocalPosition: {x: -2.42, y: -0.13, z: 0}
   m_LocalScale: {x: 0.55, y: 0.5065, z: 1}
   m_Children: []
   m_Father: {fileID: 694600320}
@@ -1746,7 +1745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64f0d90db5ac6c4faafa03e149a671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
 --- !u!1 &1392811049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1926,6 @@ GameObject:
   - component: {fileID: 2010491352}
   - component: {fileID: 2010491354}
   - component: {fileID: 2010491353}
-  - component: {fileID: 2010491358}
   - component: {fileID: 2010491356}
   - component: {fileID: 2010491355}
   m_Layer: 0
@@ -1937,7 +1934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2010491349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2063,6 +2060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 7
+  m_DoubleJumpForce: 6
   m_GroundCheckOffset: 0.65
   m_BoxCastHeight: 0.2
   m_GroundLayerMask:
@@ -2094,7 +2092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c07c44797fe554598e5b2593a5953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsMain: 0
 --- !u!114 &2010491356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,15 +2123,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2010491358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010491348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b16cd81d8d0cfd48bec6bdf493871c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

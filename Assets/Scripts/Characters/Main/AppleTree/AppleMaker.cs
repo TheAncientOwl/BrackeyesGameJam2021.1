@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Characters.Main.AppleTreeUtils
+namespace Characters.Main.AppleTree
 {
     public class AppleMaker : MonoBehaviour
     {
