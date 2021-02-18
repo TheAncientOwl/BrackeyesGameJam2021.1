@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.Bird
 {
-    public class BirdManager : Character
+    public class BirdManager : CharacterManager
     {
         private static readonly int s_FLY  = Animator.StringToHash("Fly");
         private static readonly int s_IDLE = Animator.StringToHash("Idle");
@@ -24,9 +24,10 @@ namespace Characters.Main.Bird
         private GroundHandler m_GroundHandler;
 
         private BoxCollider2D m_BoxCollider2D;
-
-        private void Start()
+        
+        new private void Awake()
         {
+            base.Awake();
             m_AirHandler = new AirHandler();
             m_AirHandler.Init(this);
 
@@ -68,7 +69,7 @@ namespace Characters.Main.Bird
                     m_State = BirdState.Grounded;
                     m_AirHandler.Disable();
                     m_GroundHandler.Enable();
-                    m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                    m_Rigidbody2D.gravityScale = 3f;
                     m_BoxCollider2D.size = m_GroundBoxColliderSize;
                     m_BoxCollider2D.offset = m_GroundBoxColliderOffset;
                 }
@@ -111,7 +112,7 @@ namespace Characters.Main.Bird
                 m_State = BirdState.InAir;
                 m_GroundHandler.Disable();
                 m_AirHandler.Enable();
-                m_Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+                m_Rigidbody2D.gravityScale = 0f;
                 m_BoxCollider2D.size = m_FlyBoxColliderSize;
                 m_BoxCollider2D.offset = m_FlyBoxColliderOffset;
             }
@@ -139,6 +140,7 @@ namespace Characters.Main.Bird
                 case BirdState.InAir: m_AirHandler.Disable(); break;
                 case BirdState.Grounded: m_GroundHandler.Disable(); break;
             }
+            m_Rigidbody2D.velocity = Vector2.zero;
         }
 
         public override void SetCommonMovement(Commons commons)

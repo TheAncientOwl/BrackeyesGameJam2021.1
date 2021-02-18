@@ -4,7 +4,7 @@ using Characters.Movement;
 
 namespace Characters.Main.RobinHood
 {
-    public class RobinHoodManager : GroundCharacter
+    public class RobinHoodManager : GroundCharacterManager
     {
         private static readonly int s_IDLE  = Animator.StringToHash("Idle");
         private static readonly int s_SHOOT = Animator.StringToHash("Shoot");

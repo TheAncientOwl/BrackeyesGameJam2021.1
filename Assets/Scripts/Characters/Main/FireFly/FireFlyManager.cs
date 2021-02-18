@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.FireFly
 {
-    public class FireFlyManager : AirCharacter
+    public class FireFlyManager : AirCharacterManager
     {
         public override void DisableSpecialMechanics()
         {

@@ -7,7 +7,7 @@ namespace Characters.Main.AppleTree
     {
         [SerializeField] private GameObject m_OnCartVariant;
         [SerializeField] private GameObject m_OnGroundVariant;
-        [SerializeField] private Character m_Character;
+        [SerializeField] private CharacterManager m_Character;
 
         [SerializeField] private float m_CheckOffset = 1f;
         [SerializeField] private float m_CheckDepth = 1f;
@@ -49,8 +49,6 @@ namespace Characters.Main.AppleTree
                             m_OnGroundVariant.SetActive(true);
                             m_OnCart = !m_OnCart;
                         }
-                        else
-                        Debug.Log("Nope");
 
                     }
                     else

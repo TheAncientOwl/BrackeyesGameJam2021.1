@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Characters.CharacterTypes
 {
-    public abstract class GroundCharacter : Character
+    public abstract class GroundCharacterManager : CharacterManager
     {
         protected GroundHandler m_GroundHandler = new GroundHandler();
 
@@ -14,7 +14,11 @@ namespace Characters.CharacterTypes
 
         public override void EnableMovement() => m_GroundHandler.Enable();
 
-        public override void DisableMovement() => m_GroundHandler.Disable();
+        public override void DisableMovement()
+        {
+            m_GroundHandler.Disable();
+            m_Rigidbody2D.velocity = Vector2.zero;
+        }
 
         public override void SetCommonMovement(Commons commons) => m_GroundHandler.SetCommon(commons);
 

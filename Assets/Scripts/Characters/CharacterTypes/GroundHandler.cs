@@ -8,7 +8,7 @@ namespace Characters.CharacterTypes
         public RunManager RunManager { get; private set; }
         public JumpManager JumpManager { get; private set; }
 
-        public void Init(Character character)
+        public void Init(CharacterManager character)
         {
             RunManager = character.gameObject.GetComponent<RunManager>();
             JumpManager = character.gameObject.GetComponent<JumpManager>();

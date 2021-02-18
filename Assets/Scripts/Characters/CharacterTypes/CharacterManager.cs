@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Characters.CharacterTypes
 {
-    public abstract class Character : MonoBehaviour
+    public abstract class CharacterManager : MonoBehaviour
     {
         protected Rigidbody2D m_Rigidbody2D;
         protected Animator m_Animator;

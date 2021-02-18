@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.Cloud
 {
-    public class CloudManager : AirCharacter
+    public class CloudManager : AirCharacterManager
     {
         private static readonly int s_IDLE            = Animator.StringToHash("Idle");
         private static readonly int s_VERTICAL_MOVE   = Animator.StringToHash("VerticalMove");

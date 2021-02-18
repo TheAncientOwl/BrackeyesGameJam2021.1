@@ -9,7 +9,7 @@ using Characters.CharacterTypes;
 
 namespace Characters
 {
-    public class CharacterManager : MonoBehaviour
+    public class CharactersManager : MonoBehaviour
     {
         [SerializeField] private RobinHoodManager m_RobinHood = null;
         [SerializeField] private GorillaManager m_Gorilla = null;
@@ -20,12 +20,14 @@ namespace Characters
 
         [SerializeField] private Commons m_Commons = null;
 
-        private Character[] m_Characters;
-        private Character m_Main;
+        private CharacterManager[] m_Characters;
+        private CharacterManager m_Main;
+
+        private bool m_Together = false;
 
         private void Start()
         {
-            m_Characters = new Character[6];
+            m_Characters = new CharacterManager[6];
             m_Characters[0] = m_RobinHood;
             m_Characters[1] = m_Gorilla;
             m_Characters[2] = m_AppleTree;
@@ -33,13 +35,18 @@ namespace Characters
             m_Characters[4] = m_FireFly;
             m_Characters[5] = m_Bird;
 
+            foreach (var character in m_Characters)
+                character.SetMain(false);
+
             m_Main = m_RobinHood;
-            //m_Main.SetMain(true);
+            m_Main.SetMain(true);
         }
 
         private void Update()
         {
-            //CheckMainCharacterSwitch();
+            CheckTeamMovement();
+            if (!m_Together)
+                CheckMainCharacterSwitch();
         }
 
         void CheckMainCharacterSwitch()
@@ -76,7 +83,7 @@ namespace Characters
             }
         }
 
-        void SwitchMain(Character character)
+        void SwitchMain(CharacterManager character)
         {
             m_Main.SetMain(false);
             m_Main = character;
@@ -99,18 +106,23 @@ namespace Characters
 
         void GoTogether()
         {
+            m_Together = true;
             foreach(var character in m_Characters)
             {
+                character.EnableMovement();
                 character.SetCommonMovement(m_Commons);
             }
         }
 
         void GoSeparate()
         {
+            m_Together = false;
             foreach(var character in m_Characters)
             {
+                character.DisableMovement();
                 character.SetNormalMovement();
             }
+            m_Main.EnableMovement();
         }
 
     }

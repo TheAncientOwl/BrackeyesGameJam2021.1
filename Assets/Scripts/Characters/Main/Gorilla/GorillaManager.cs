@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.Gorilla
 {
-    public class GorillaManager : GroundCharacter
+    public class GorillaManager : GroundCharacterManager
     {
         private static readonly int s_WALK = Animator.StringToHash("Walk");
         private static readonly int s_IN_AIR = Animator.StringToHash("InAir");
