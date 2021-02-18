@@ -9,8 +9,7 @@ namespace Characters.CharacterTypes
         new protected void Start()
         {
             base.Start();
-            m_AirHandler = new AirHandler();
-            m_AirHandler.Init(this);
+            m_AirHandler = new AirHandler(this);
         }
 
         public override void EnableMovement() => m_AirHandler.Enable();

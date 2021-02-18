@@ -87,5 +87,7 @@ namespace Characters.Movement
         public void SetJumpForce(float jumpForce) => m_JumpForce = jumpForce;
 
         public void SetDefaultJumpForce() => m_JumpForce = this.BACKUP_JUMP_FORCE;
+
+        public bool IsGrounded() => m_Grounded;
     }
 }

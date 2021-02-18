@@ -9,8 +9,7 @@ namespace Characters.CharacterTypes
         new protected void Start()
         {
             base.Start();
-            m_GroundHandler = new GroundHandler();
-            m_GroundHandler.Init(this);
+            m_GroundHandler = new GroundHandler(this);
         }
 
         public override void EnableMovement() => m_GroundHandler.Enable();
