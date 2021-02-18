@@ -15,12 +15,6 @@ namespace Characters.CharacterTypes
             m_Animator = GetComponent<Animator>();
         }
 
-        public float GetVelocityY() => m_Rigidbody2D.velocity.y;
-
-        public Vector2 GetVelocity() => m_Rigidbody2D.velocity;
-
-        public Vector2 GetNormalizedVelocity() => m_Rigidbody2D.velocity.normalized;
-
         public bool IsMain() => m_IsMain;
 
         public abstract void SetMain(bool main);

@@ -23,6 +23,8 @@ namespace Characters.Movement
         private float BACKUP_JUMP_FORCE = 0f;
         private Vector2 BOX_CAST_SIZE = Vector2.zero;
 
+        private bool m_Jumped = false;
+
         private void Start()
         {
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -44,7 +46,8 @@ namespace Characters.Movement
                 {
                     m_Grounded = false;
                     m_GroundedBuffer = 0f;
-                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+                    Jump();
+                    m_Jumped = true;
                 }
             }
         }
@@ -62,6 +65,9 @@ namespace Characters.Movement
                     distance  : 0f,
                     angle     : 0f
                 ).collider != null;
+
+                if (m_Grounded)
+                    m_Jumped = false;
             }
         }
 
@@ -83,6 +89,10 @@ namespace Characters.Movement
             m_GroundedBuffer = 0f;
             m_JumpBuffer = 0f;
         }
+
+        public void Jump() => m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+
+        public bool Jumped() => m_Jumped;
 
         public void SetJumpForce(float jumpForce) => m_JumpForce = jumpForce;
 

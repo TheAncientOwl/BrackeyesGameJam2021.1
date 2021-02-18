@@ -14,13 +14,13 @@ namespace Characters.Main
         {
             base.Start();
 
-            m_LastHash = GetNormalizedVelocity().y != 0f ? s_VERTICAL_MOVE : (GetHorizontalDirection() == 0f ? s_IDLE : s_HORIZONTAL_MOVE);
+            m_LastHash = m_Rigidbody2D.velocity.normalized.y != 0f ? s_VERTICAL_MOVE : (GetHorizontalDirection() == 0f ? s_IDLE : s_HORIZONTAL_MOVE);
             m_Animator.SetBool(m_LastHash, true);
         }
 
         private void Update()
         {
-            int  newHash = GetNormalizedVelocity().y != 0f ? s_VERTICAL_MOVE : (GetHorizontalDirection() == 0f ? s_IDLE : s_HORIZONTAL_MOVE);
+            int  newHash = m_Rigidbody2D.velocity.normalized.y != 0f ? s_VERTICAL_MOVE : (GetHorizontalDirection() == 0f ? s_IDLE : s_HORIZONTAL_MOVE);
 
             if (m_LastHash != newHash)
             {

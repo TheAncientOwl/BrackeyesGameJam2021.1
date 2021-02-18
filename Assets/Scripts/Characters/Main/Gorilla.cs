@@ -24,7 +24,7 @@ namespace Characters.Main
         private void FixedUpdate()
         {
             m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
-            m_Animator.SetBool(s_IN_AIR, GetNormalizedVelocity().y != 0f);
+            m_Animator.SetBool(s_IN_AIR, m_Rigidbody2D.velocity.normalized.y != 0f);
         }
 
         public override void SetMain(bool main)
