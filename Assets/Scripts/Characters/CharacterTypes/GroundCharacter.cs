@@ -1,46 +1,27 @@
 using UnityEngine;
-using Characters.Movement;
 
 namespace Characters.CharacterTypes
 {
-    public class GroundCharacter : Character
+    public abstract class GroundCharacter : Character
     {
-        protected RunManager m_RunManager;
-        protected JumpManager m_JumpManager;
+        protected GroundHandler m_GroundHandler;
 
-        new private void Start()
+        new protected void Start()
         {
             base.Start();
-            m_RunManager = GetComponent<RunManager>();
-            m_JumpManager = GetComponent<JumpManager>();
+            m_GroundHandler = new GroundHandler();
+            m_GroundHandler.Init(this);
         }
 
-        public override void EnableMovement()
-        {
-            m_RunManager.enabled = true;
-            m_JumpManager.enabled = true;
-        }
+        public override void EnableMovement() => m_GroundHandler.Enable();
 
-        public override void DisableMovement()
-        {
-            m_RunManager.enabled = false;
-            m_JumpManager.enabled = false;
-        }
+        public override void DisableMovement() => m_GroundHandler.Disable();
 
-        public override void SetCommonMovement(Commons commons)
-        {
-            m_RunManager.SetRunSpeed(commons.runSpeed);
-            m_JumpManager.SetJumpForce(commons.jumpForce);
-        }
+        public override void SetCommonMovement(Commons commons) => m_GroundHandler.SetCommon(commons);
 
-        public override void SetNormalMovement()
-        {
-            m_RunManager.SetDefaultRunSpeed();
-            m_JumpManager.SetDefaultJumpForce();
-        }
+        public override void SetNormalMovement() => m_GroundHandler.SetNormal();
 
-        public override float GetHorizontalDirection() => m_RunManager.GetDirection();
-
+        public override float GetHorizontalDirection() => m_GroundHandler.RunManager.GetDirection();
     }
 }
 

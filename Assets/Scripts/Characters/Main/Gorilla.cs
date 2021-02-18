@@ -26,5 +26,10 @@ namespace Characters.Main
             m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
             m_Animator.SetBool(s_IN_AIR, GetNormalizedVelocity().y != 0f);
         }
+
+        public override void SetMain(bool main)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

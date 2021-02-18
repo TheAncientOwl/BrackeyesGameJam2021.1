@@ -37,11 +37,7 @@ namespace Characters.Movement
             );
         }
 
-        private void OnDisable()
-        {
-            m_Direction = 0f;
-            m_Rigidbody2D.velocity = Vector2.zero;
-        }
+        private void OnDisable() => m_Direction = 0f;
 
         public void SetRunSpeed(float runSpeed) => m_RunSpeed = runSpeed;
 

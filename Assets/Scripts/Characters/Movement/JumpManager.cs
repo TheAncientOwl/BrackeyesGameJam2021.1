@@ -82,7 +82,6 @@ namespace Characters.Movement
         {
             m_GroundedBuffer = 0f;
             m_JumpBuffer = 0f;
-            m_Rigidbody2D.velocity = Vector2.zero;
         }
 
         public void SetJumpForce(float jumpForce) => m_JumpForce = jumpForce;

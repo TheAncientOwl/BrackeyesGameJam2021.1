@@ -5,7 +5,7 @@ namespace Characters.Main
 {
     public class Cloud : AirCharacter
     {
-        private static readonly int s_IDLE    = Animator.StringToHash("Idle");
+        private static readonly int s_IDLE            = Animator.StringToHash("Idle");
         private static readonly int s_VERTICAL_MOVE   = Animator.StringToHash("VerticalMove");
         private static readonly int s_HORIZONTAL_MOVE = Animator.StringToHash("HorizontalMove");
         private int m_LastHash = 0;
@@ -28,6 +28,11 @@ namespace Characters.Main
                 m_Animator.SetBool(newHash, true);
                 m_LastHash = newHash;
             }
+        }
+
+        public override void SetMain(bool main)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
