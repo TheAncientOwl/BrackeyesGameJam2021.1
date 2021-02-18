@@ -40,21 +40,16 @@ namespace Characters.Main
 
         private void Update()
         {
-            if (m_State == BirdState.Grounded && !m_GroundHandler.JumpManager.IsGrounded())
-            {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    m_State = BirdState.InAir;
-                    m_GroundHandler.Disable();
-                    m_AirHandler.Enable();
-                    m_Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-                    m_BoxCollider2D.size = m_FlyBoxColliderSize;
-                    m_BoxCollider2D.offset = m_FlyBoxColliderOffset;
-                }
-            }
+            CheckFly();
         }
 
         private void FixedUpdate()
+        {
+            CheckGrounded();
+            SetAnimation();
+        }
+
+        private void CheckGrounded()
         {
             if (m_State == BirdState.InAir)
             {
@@ -78,32 +73,48 @@ namespace Characters.Main
                     m_BoxCollider2D.offset = m_GroundBoxColliderOffset;
                 }
             }
+        }
 
+        private void SetAnimation()
+        {
             switch (m_State)
             {
                 case BirdState.InAir:
-                {
-                    m_Animator.SetBool(s_FLY, true);
-                    m_Animator.SetBool(s_Walk, false);
-                    m_Animator.SetBool(s_IDLE, false);
-                    break;
-                }
-                case BirdState.Grounded:
-                {
-                    m_Animator.SetBool(s_FLY, false);
-                    if (GetHorizontalDirection() == 0f)
                     {
-                        m_Animator.SetBool(s_IDLE, true);
+                        m_Animator.SetBool(s_FLY, true);
                         m_Animator.SetBool(s_Walk, false);
-                    }   
-                    else
-                    {
-                        m_Animator.SetBool(s_Walk, true);
                         m_Animator.SetBool(s_IDLE, false);
+                        break;
                     }
-                    break;
-                }
-            }   
+                case BirdState.Grounded:
+                    {
+                        m_Animator.SetBool(s_FLY, false);
+                        if (GetHorizontalDirection() == 0f)
+                        {
+                            m_Animator.SetBool(s_IDLE, true);
+                            m_Animator.SetBool(s_Walk, false);
+                        }
+                        else
+                        {
+                            m_Animator.SetBool(s_Walk, true);
+                            m_Animator.SetBool(s_IDLE, false);
+                        }
+                        break;
+                    }
+            }
+        }
+
+        private void CheckFly()
+        {
+            if (Input.GetKeyDown(KeyCode.W) && m_State == BirdState.Grounded && !m_GroundHandler.JumpManager.IsGrounded())
+            {
+                m_State = BirdState.InAir;
+                m_GroundHandler.Disable();
+                m_AirHandler.Enable();
+                m_Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+                m_BoxCollider2D.size = m_FlyBoxColliderSize;
+                m_BoxCollider2D.offset = m_FlyBoxColliderOffset;
+            }
         }
 
         private void OnDrawGizmos()

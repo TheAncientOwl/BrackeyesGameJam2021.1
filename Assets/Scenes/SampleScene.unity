@@ -1917,15 +1917,17 @@ GameObject:
   m_Component:
   - component: {fileID: 2010491350}
   - component: {fileID: 2010491349}
+  - component: {fileID: 2010491357}
   - component: {fileID: 2010491351}
   - component: {fileID: 2010491352}
   - component: {fileID: 2010491354}
   - component: {fileID: 2010491353}
+  - component: {fileID: 2010491356}
   - component: {fileID: 2010491355}
   m_Layer: 0
   m_Name: RobinHood
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1969,8 +1971,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.26666668, g: 0.5176471, b: 0.23529413, a: 1}
+  m_Sprite: {fileID: 4723107735738678597, guid: 652a399da3f188c4ba5f9acdafc87d46, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1988,8 +1990,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010491348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.22, y: -3.04, z: 0}
-  m_LocalScale: {x: 0.59227616, y: 0.89378446, z: 1}
+  m_LocalPosition: {x: -4.7, y: -3.08, z: 0}
+  m_LocalScale: {x: 2.482613, y: 2.6689804, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2028,18 +2030,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0021090508}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.32, y: 0.39}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9957819}
+  m_Size: {x: 0.35, y: 0.41}
   m_EdgeRadius: 0
 --- !u!114 &2010491353
 MonoBehaviour:
@@ -2054,8 +2056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 7
-  m_GroundCheckOffset: 0.45
-  m_BoxCastHeight: 0.5
+  m_GroundCheckOffset: 0.65
+  m_BoxCastHeight: 0.2
   m_GroundLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -2086,3 +2088,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsMain: 0
+--- !u!114 &2010491356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010491348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42bba7d1abd0649a29473ad9e7a8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2010491357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010491348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17b33d97c3122954183e6c20ffe89332, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
