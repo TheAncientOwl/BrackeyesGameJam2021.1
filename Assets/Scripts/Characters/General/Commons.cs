@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Characters
+namespace Characters.General
 {
     [System.Serializable]
     public class Commons

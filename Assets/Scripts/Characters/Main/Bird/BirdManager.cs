@@ -1,5 +1,6 @@
 using UnityEngine;
 using Characters.CharacterTypes;
+using Characters.General;
 
 namespace Characters.Main.Bird
 {

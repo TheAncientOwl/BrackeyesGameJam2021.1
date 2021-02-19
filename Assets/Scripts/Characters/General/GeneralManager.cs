@@ -1,7 +1,7 @@
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters
+namespace Characters.General
 {
     public class GeneralManager : MonoBehaviour
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Characters.General;
 
 namespace Characters.CharacterTypes
 {

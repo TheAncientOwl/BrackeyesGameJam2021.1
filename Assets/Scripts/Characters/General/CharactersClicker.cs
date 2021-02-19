@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Characters.CharacterTypes;
 
-namespace Characters
+namespace Characters.General
 {
     public class CharactersClicker : MonoBehaviour
     {

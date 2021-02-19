@@ -1,5 +1,6 @@
 using UnityEngine;
 using Characters.Movement;
+using Characters.General;
 
 namespace Characters.CharacterTypes
 {
