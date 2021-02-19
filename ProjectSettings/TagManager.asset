@@ -44,14 +44,14 @@ TagManager:
   - name: Bow
     uniqueID: 413806667
     locked: 0
-  - name: RobinHood
-    uniqueID: 3054817679
-    locked: 0
   - name: RainDrop
     uniqueID: 2672472821
     locked: 0
   - name: Cloud
     uniqueID: 4072063567
+    locked: 0
+  - name: RobinHood
+    uniqueID: 3054817679
     locked: 0
   - name: Bird
     uniqueID: 1748120981

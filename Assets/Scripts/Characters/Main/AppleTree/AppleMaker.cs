@@ -7,6 +7,8 @@ namespace Characters.Main.AppleTree
         private static readonly int s_GO = Animator.StringToHash("go");
 
         [SerializeField] private float m_WaitTime = 0.5f;
+        [SerializeField] private int m_HealFactor = 2;
+        [SerializeField] private Health[] m_CharactersHealth;
 
         private Animator m_Animator;
 
@@ -15,6 +17,8 @@ namespace Characters.Main.AppleTree
 
         private float m_PhaseTime = 0f;
         private float m_Timer = 0f;
+
+        private bool m_Healed = false;
 
         private void Start()
         {
@@ -26,6 +30,7 @@ namespace Characters.Main.AppleTree
         {
             m_Timer = 0f;
             m_CurrentPhase = 0;
+            m_Healed = false;
         }
         
         private void Update()
@@ -37,6 +42,14 @@ namespace Characters.Main.AppleTree
                 m_CurrentPhase++;
                 if (m_CurrentPhase < MAX_PHASES)
                     m_Animator.SetTrigger(s_GO);
+                else if (!m_Healed)
+                {
+                    m_Healed = true;
+                    foreach (var health in m_CharactersHealth)
+                    {
+                        health.Heal(m_HealFactor);
+                    }
+                }
             }
         }
     }

@@ -23,7 +23,10 @@ namespace Characters
         private CharacterManager[] m_Characters;
         private CharacterManager m_Main;
 
-        private bool m_Together = false;
+        [SerializeField] private GameObject m_CharacterAvatars;
+
+        private bool m_CanSwitch = true;
+        private CharactersClicker m_CharactersClicker;
 
         private void Start()
         {
@@ -40,46 +43,40 @@ namespace Characters
 
             m_Main = m_RobinHood;
             m_Main.SetMain(true);
+
+            m_CharacterAvatars.SetActive(false);
+            m_CharactersClicker = GetComponent<CharactersClicker>();
+            m_CharactersClicker.enabled = false;
         }
 
         private void Update()
         {
             CheckTeamMovement();
-            if (!m_Together)
+            if (m_CanSwitch)
                 CheckMainCharacterSwitch();
         }
 
         void CheckMainCharacterSwitch()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                SwitchMain(m_RobinHood);
-                Debug.Log("Now playing as RobinHood.");
+                m_CharacterAvatars.SetActive(true);
+                m_CharactersClicker.enabled = true;
+                return;
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                SwitchMain(m_Gorilla);
-                Debug.Log("Now playing as Gorilla.");
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                SwitchMain(m_AppleTree);
-                Debug.Log("Now playing as AppleTree.");
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                SwitchMain(m_Cloud);
-                Debug.Log("Now playing as Cloud.");
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                SwitchMain(m_FireFly);
-                Debug.Log("Now playing as FireFly.");
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                SwitchMain(m_Bird);
-                Debug.Log("Now playing as Bird.");
+                m_CharacterAvatars.SetActive(false);
+                m_CharactersClicker.enabled = true;
+                CharacterManager newMain = m_CharactersClicker.ExtractLastClicked();
+                if (newMain != null)
+                {
+                    m_Main.SetMain(false);
+                    m_Main = newMain;
+                    m_Main.SetMain(true);
+                    Debug.Log("Now playing as " + m_Main.gameObject.name);
+                }
+                return;
             }
         }
 
@@ -106,7 +103,7 @@ namespace Characters
 
         void GoTogether()
         {
-            m_Together = true;
+            m_CanSwitch = false;
             foreach(var character in m_Characters)
             {
                 character.DisableSpecialMechanics();
@@ -117,7 +114,7 @@ namespace Characters
 
         void GoSeparate()
         {
-            m_Together = false;
+            m_CanSwitch = true;
             foreach(var character in m_Characters)
             {
                 character.DisableMovement();
@@ -126,5 +123,6 @@ namespace Characters
             m_Main.EnableMovement();
         }
 
+        public void SetCharacterSwitch(bool value) => m_CanSwitch = value;
     }
 }

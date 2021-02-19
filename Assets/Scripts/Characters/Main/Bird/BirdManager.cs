@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Characters.CharacterTypes;
+using Characters.Movement;
 
 namespace Characters.Main.Bird
 {
@@ -11,6 +12,8 @@ namespace Characters.Main.Bird
         private static readonly int s_Walk = Animator.StringToHash("Walk");
 
         private const float MINIMIZE_FACTOR = 4f;
+
+        [SerializeField] private CharactersManager m_CharactersManager;
 
         [SerializeField] private LayerMask m_GroundLayerMask = 0;
         [SerializeField] private GameObject m_GroundCheckPoint = null;
@@ -34,6 +37,8 @@ namespace Characters.Main.Bird
         private GroundHandler m_GroundHandler = new GroundHandler();
 
         private BoxCollider2D m_BoxCollider2D;
+
+        private SpriteFlipper m_SpriteFlipper;
         
         new private void Awake()
         {
@@ -44,6 +49,7 @@ namespace Characters.Main.Bird
             m_GroundHandler.Disable();
 
             m_BoxCollider2D = GetComponent<BoxCollider2D>();
+            m_SpriteFlipper = GetComponent<SpriteFlipper>();
         }
 
         private void Update()
@@ -80,58 +86,64 @@ namespace Characters.Main.Bird
 
         private void CheckGrounded()
         {
-            if (m_State == BirdState.InAir)
-            {
-                bool grounded = Physics2D.BoxCast
-                (
-                    origin: m_GroundCheckPoint.transform.position,
-                    size: m_GroundCheckSize,
-                    layerMask: m_GroundLayerMask,
-                    direction: Vector2.down,
-                    distance: 0f,
-                    angle: 0f
-                ).collider != null;
+            if (m_State != BirdState.InAir)
+                return;
 
-                if (grounded)
-                {
-                    m_State = BirdState.Grounded;
-                    m_AirHandler.Disable();
-                    m_GroundHandler.Enable();
-                    m_Rigidbody2D.gravityScale = 3f;
-                    m_BoxCollider2D.size = m_GroundBoxColliderSize;
-                    m_BoxCollider2D.offset = m_GroundBoxColliderOffset;
-                }
+            bool grounded = Physics2D.BoxCast
+            (
+                origin: m_GroundCheckPoint.transform.position,
+                size: m_GroundCheckSize,
+                layerMask: m_GroundLayerMask,
+                direction: Vector2.down,
+                distance: 0f,
+                angle: 0f
+            ).collider != null;
+
+            if (grounded)
+            {
+                m_State = BirdState.Grounded;
+                m_AirHandler.Disable();
+                m_GroundHandler.Enable();
+                m_Rigidbody2D.gravityScale = 3f;
+                m_BoxCollider2D.size = m_GroundBoxColliderSize;
+                m_BoxCollider2D.offset = m_GroundBoxColliderOffset;
             }
         }
 
         private void CollectCharacters()
         {
+            m_CharactersManager.SetCharacterSwitch(false);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_BoxCollider2D.bounds.center, m_PlaneModeCheckRadius, m_CharacterLayerMask);
 
-            if (colliders.Length > 0)
+            if (colliders.Length == 0)
+                return;
+
+            foreach (var collider in colliders)
             {
-                foreach (var character in colliders)
+                GameObject obj = collider.gameObject;
+                if (obj != this.gameObject)
                 {
-                    GameObject obj = character.gameObject;
-                    if (obj != this.gameObject)
-                    {
-                        m_Characters.AddLast(obj);
-                        obj.transform.localScale /= MINIMIZE_FACTOR;
-                        obj.transform.position = m_PlanePoint.position + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.1f, 0.1f));
-                        obj.transform.SetParent(this.transform);
-                        obj.GetComponent<Rigidbody2D>().isKinematic = true;
-                    }
+                    m_Characters.AddLast(obj);
+                    obj.transform.localScale /= MINIMIZE_FACTOR;
+                    obj.transform.position = m_PlanePoint.position + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.1f, 0.1f));
+                    obj.transform.SetParent(this.transform);
+                    obj.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
             }
         }
 
         private void ReleaseCharacters()
         {
+            m_CharactersManager.SetCharacterSwitch(true);
             foreach (var character in m_Characters)
             {
                 character.transform.localScale *= MINIMIZE_FACTOR;
                 character.transform.SetParent(m_CharacterManager.transform);
                 character.GetComponent<Rigidbody2D>().isKinematic = false;
+                if (m_SpriteFlipper.FacingRight())
+                    character.GetComponent<SpriteFlipper>().ForceFacingRight();
+                else
+                    character.GetComponent<SpriteFlipper>().ForceFacingLeft();
             }
             m_Characters.Clear();
         }

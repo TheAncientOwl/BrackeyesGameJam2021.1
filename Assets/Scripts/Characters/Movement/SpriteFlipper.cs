@@ -22,5 +22,23 @@ namespace Characters.Movement
         }
 
         public bool FacingRight() => m_FacingRight;
+
+        public void ForceFacingRight()
+        {
+            m_FacingRight = true;
+            Vector3 scale = transform.localScale;
+            if (scale.x < 0)
+                scale.x *= -1;
+            transform.localScale = scale;
+        }
+
+        public void ForceFacingLeft()
+        {
+            m_FacingRight = false;
+            Vector3 scale = transform.localScale;
+            if (scale.x > 0)
+                scale.x *= -1;
+            transform.localScale = scale;
+        }
     }
 }
