@@ -1343,8 +1343,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694600320}
-  - component: {fileID: 694600321}
   - component: {fileID: 694600322}
+  - component: {fileID: 694600321}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Commons:
     jumpForce: 7
     runSpeed: 240
-    flySpeed: {x: 240, y: 200}
+    flySpeed: {x: 120, y: 200}
   m_Characters:
   - {fileID: 2010491355}
   - {fileID: 224245300}
@@ -2032,6 +2032,8 @@ GameObject:
   - component: {fileID: 1171420871}
   - component: {fileID: 1171420868}
   - component: {fileID: 1171420865}
+  - component: {fileID: 1171420874}
+  - component: {fileID: 1171420875}
   m_Layer: 8
   m_Name: Bird
   m_TagString: Untagged
@@ -2173,22 +2175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Avatar: {fileID: 748139286}
-  m_CharactersManager: {fileID: 694600321}
-  m_GroundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  m_GroundCheckPoint: {fileID: 165791055}
-  m_GroundCheckSize: {x: 1, y: 0.47}
-  m_FlyBoxColliderSize: {x: 0.41, y: 0.2}
-  m_FlyBoxColliderOffset: {x: 0, y: 0.0115926}
-  m_GroundBoxColliderSize: {x: 0.28, y: 0.27}
-  m_GroundBoxColliderOffset: {x: 0, y: -0.004991904}
+  m_GeneralManager: {fileID: 694600321}
   m_PlaneModeCheckRadius: 1.08
   m_CharacterLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  m_CharacterManager: {fileID: 694600319}
-  m_PlanePoint: {fileID: 1377500939}
+  m_GeneralParent: {fileID: 694600319}
+  m_PlaneSeatPoint: {fileID: 1377500939}
 --- !u!95 &1171420869
 Animator:
   serializedVersion: 3
@@ -2279,6 +2272,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.20234065}
   m_EdgeRadius: 0
+--- !u!114 &1171420874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171420862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7cfd0debf4ccc459ab2f11b9564468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_GroundCheckPoint: {fileID: 165791055}
+  m_GroundCheckSize: {x: 1, y: 0.47}
+  m_FlyBoxColliderSize: {x: 0.41, y: 0.2}
+  m_FlyBoxColliderOffset: {x: 0, y: 0.0115926}
+  m_GroundBoxColliderSize: {x: 0.28, y: 0.27}
+  m_GroundBoxColliderOffset: {x: 0, y: -0.004991904}
+--- !u!114 &1171420875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171420862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7ba327467a0da4a9405ea996cd3dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GeneralManager: {fileID: 694600321}
+  m_PlaneModeCheckRadius: 1.08
+  m_CharacterLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_GeneralParent: {fileID: 694600319}
+  m_PlaneSeatPoint: {fileID: 1377500939}
 --- !u!1 &1192288521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377500939}
   m_Layer: 8
-  m_Name: PlanePoint
+  m_Name: PlaneSeatPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

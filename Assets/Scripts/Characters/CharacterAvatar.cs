@@ -18,15 +18,16 @@ namespace Characters
 
         private void OnDisable() => m_Banned = false;
 
-        private void Update()
+        private void OnEnable() => SetBanned(m_Banned);
+
+        public void SetBanned(bool banned)
         {
+            m_Banned = banned;
             if (m_Banned)
                 m_SpriteRenderer.sprite = m_BannedSprite;
             else
                 m_SpriteRenderer.sprite = m_Unlocked ? m_UnlockedSprite : m_LockedSprite;
         }
-
-        public void SetBanned(bool banned) => m_Banned = banned;
 
         public CharacterManager GetCharacterManager() => m_Character;
 

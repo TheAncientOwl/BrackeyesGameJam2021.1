@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters
 {
-    public class Manager : MonoBehaviour
+    public class GeneralManager : MonoBehaviour
     {
         [SerializeField] private Commons m_Commons = null;
         [SerializeField] private CharacterManager[] m_Characters;
@@ -12,6 +12,7 @@ namespace Characters
         [SerializeField] private GameObject m_CharacterAvatars;
 
         private bool m_CanSwitch = true;
+        private bool m_InSwitchMenu = false;
         private CharactersClicker m_CharactersClicker;
 
         private void Start()
@@ -30,12 +31,12 @@ namespace Characters
         {
             CheckTeamMovement();
             if (m_CanSwitch)
-                CheckMainCharacterSwitch();
+                CharacterSwitchMenu();
         }
 
-        void CheckMainCharacterSwitch()
+        void CharacterSwitchMenu()
         {
-            if (m_CharactersClicker.Clicked())
+            if (m_InSwitchMenu && m_CharactersClicker.Clicked())
             {
                 m_CharacterAvatars.SetActive(false);
                 m_CharactersClicker.enabled = true;
@@ -47,27 +48,30 @@ namespace Characters
                     m_Main.SetMain(true);
                     Debug.Log("Now playing as " + m_Main.gameObject.name);
                 }
+                m_Main.EnableSpecialMechanics();
                 return;
             }
             else if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 m_CharacterAvatars.SetActive(true);
                 m_CharactersClicker.enabled = true;
+                m_Main.DisableSpecialMechanics();
+                m_InSwitchMenu = true;
                 return;
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift))
             {
+                m_InSwitchMenu = false;
                 m_CharacterAvatars.SetActive(false);
                 m_CharactersClicker.enabled = false;
+                m_Main.EnableSpecialMechanics();
             }
         }
 
         void CheckTeamMovement()
         {
-            if (Input.GetKeyDown(KeyCode.K))
-                GoTogether();
-            else if (Input.GetKeyDown(KeyCode.L))
-                GoSeparate();
+            if (Input.GetKeyDown(KeyCode.K))      GoTogether();
+            else if (Input.GetKeyDown(KeyCode.L)) GoSeparate();
         }
 
         void GoTogether()

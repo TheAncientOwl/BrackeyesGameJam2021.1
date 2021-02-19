@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Characters.CharacterTypes;
 
@@ -5,19 +6,22 @@ namespace Characters
 {
     public class CharactersClicker : MonoBehaviour
     {
+        private readonly HashSet<GameObject> m_Selection = new HashSet<GameObject>();
         private CharacterManager m_Clicked = null;
 
         private Camera m_Camera;
 
         private void Start() => m_Camera = Camera.main;
 
-        private void OnEnable() => m_Clicked = null;
-
-        private void OnDisable() => m_Clicked = null;
+        private void OnEnable()
+        {
+            m_Clicked = null;
+            m_Selection.Clear();
+        }
 
         private void Update()
         {
-            if (!m_Clicked && Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 m_Clicked = null;
                 Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
@@ -25,10 +29,12 @@ namespace Characters
 
                 if (hit.transform != null)
                 {
-                    CharacterAvatar characterAvatar = hit.transform.GetComponent<CharacterAvatar>();
+                    GameObject obj = hit.transform.gameObject;
+                    CharacterAvatar characterAvatar = obj.GetComponent<CharacterAvatar>();
                     if (characterAvatar != null && characterAvatar.CanBeChoosed())
                     {
                         m_Clicked = characterAvatar.GetCharacterManager();
+                        m_Selection.Add(obj);
                     }
                 }
             }
@@ -42,5 +48,7 @@ namespace Characters
             m_Clicked = null;
             return obj;
         }
+
+        public HashSet<GameObject> GetSelection() => m_Selection;
     }
 }
