@@ -20,5 +20,7 @@ namespace Characters.Movement
                 transform.localScale = scale;
             }
         }
+
+        public bool FacingRight() => m_FacingRight;
     }
 }

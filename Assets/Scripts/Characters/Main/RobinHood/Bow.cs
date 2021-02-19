@@ -25,6 +25,7 @@ namespace Characters.Main.RobinHood
             {
                 m_Points[i] = Instantiate(m_Point, m_ShotPoint.position, Quaternion.identity);
             }
+
         }
 
         private void Update()

@@ -1,6 +1,5 @@
 using UnityEngine;
 using Characters.CharacterTypes;
-using Characters.Movement;
 
 namespace Characters.Main.RobinHood
 {
@@ -22,18 +21,25 @@ namespace Characters.Main.RobinHood
 
         private void Update()
         {
-            if (m_IsMain)
+            TryMechanic();
+            SetAnimation();
+        }
+
+        private void TryMechanic()
+        {
+            if (m_IsMain && Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0f)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0)
-                {
-                    m_ShootMode = !m_ShootMode;
-                    m_Bow.SetActive(m_ShootMode);
-                    if (m_ShootMode)
-                        DisableMovement();
-                    else
-                        EnableMovement();
-                }
+                m_ShootMode = !m_ShootMode;
+                m_Bow.SetActive(m_ShootMode);
+                if (m_ShootMode)
+                    DisableMovement();
+                else
+                    EnableMovement();
             }
+        }
+
+        private void SetAnimation()
+        {
             m_Animator.SetBool(s_JUMP, m_Rigidbody2D.velocity.y > 0f);
             m_Animator.SetBool(s_FALL, m_Rigidbody2D.velocity.y < 0f);
             m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
