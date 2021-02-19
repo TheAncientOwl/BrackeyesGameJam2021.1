@@ -1,27 +1,13 @@
 using UnityEngine;
-using Characters.Main.AppleTree;
-using Characters.Main.Bird;
-using Characters.Main.Cloud;
-using Characters.Main.FireFly;
-using Characters.Main.Gorilla;
-using Characters.Main.RobinHood;
 using Characters.CharacterTypes;
 
 namespace Characters
 {
-    public class CharactersManager : MonoBehaviour
+    public class Manager : MonoBehaviour
     {
-        [SerializeField] private RobinHoodManager m_RobinHood = null;
-        [SerializeField] private GorillaManager m_Gorilla = null;
-        [SerializeField] private AppleTreeManager m_AppleTree = null;
-        [SerializeField] private CloudManager m_Cloud = null;
-        [SerializeField] private FireFlyManager m_FireFly = null;
-        [SerializeField] private BirdManager m_Bird = null;
-
         [SerializeField] private Commons m_Commons = null;
-
-        private CharacterManager[] m_Characters;
-        private CharacterManager m_Main;
+        [SerializeField] private CharacterManager[] m_Characters;
+        [SerializeField] private CharacterManager m_Main;
 
         [SerializeField] private GameObject m_CharacterAvatars;
 
@@ -30,18 +16,9 @@ namespace Characters
 
         private void Start()
         {
-            m_Characters = new CharacterManager[6];
-            m_Characters[0] = m_RobinHood;
-            m_Characters[1] = m_Gorilla;
-            m_Characters[2] = m_AppleTree;
-            m_Characters[3] = m_Cloud;
-            m_Characters[4] = m_FireFly;
-            m_Characters[5] = m_Bird;
-
             foreach (var character in m_Characters)
                 character.SetMain(false);
 
-            m_Main = m_RobinHood;
             m_Main.SetMain(true);
 
             m_CharacterAvatars.SetActive(false);
@@ -58,13 +35,7 @@ namespace Characters
 
         void CheckMainCharacterSwitch()
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                m_CharacterAvatars.SetActive(true);
-                m_CharactersClicker.enabled = true;
-                return;
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            if (m_CharactersClicker.Clicked())
             {
                 m_CharacterAvatars.SetActive(false);
                 m_CharactersClicker.enabled = true;
@@ -78,27 +49,25 @@ namespace Characters
                 }
                 return;
             }
-        }
-
-        void SwitchMain(CharacterManager character)
-        {
-            m_Main.SetMain(false);
-            m_Main = character;
-            m_Main.SetMain(true);
+            else if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                m_CharacterAvatars.SetActive(true);
+                m_CharactersClicker.enabled = true;
+                return;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                m_CharacterAvatars.SetActive(false);
+                m_CharactersClicker.enabled = false;
+            }
         }
 
         void CheckTeamMovement()
         {
             if (Input.GetKeyDown(KeyCode.K))
-            {
-                Debug.Log("Together");
                 GoTogether();
-            }
             else if (Input.GetKeyDown(KeyCode.L))
-            {
-                Debug.Log("Separate");
                 GoSeparate();
-            }
         }
 
         void GoTogether()

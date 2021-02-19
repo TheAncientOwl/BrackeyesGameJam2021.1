@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb5f98d656444747a0a05cc26ab6656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 402114779}
   m_PunchHitBox: {x: 0.5, y: 0.34}
   m_PunchHitBoxOffset: {x: 0.46, y: -0.12}
   m_BreakableObjectsLayerMask:
@@ -553,7 +554,7 @@ GameObject:
   - component: {fileID: 250100085}
   - component: {fileID: 250100086}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: AppleTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,10 +637,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: 188180499001535768, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: -5962422375273434724, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: -6891972328530412067, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 577250764}
-  m_AviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_UnaviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &250100086
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -752,10 +755,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: 4006001496492205324, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: 7723580914479926077, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: 4768187136420586140, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 224245300}
-  m_AviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_UnaviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &402114780
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1120,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7fcc59e2d54047bb8298feaf8fa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 250100085}
   m_VariantChooser: {fileID: 848473337}
 --- !u!114 &577250765
 MonoBehaviour:
@@ -1378,16 +1384,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c40ee28926783145944f5e8f2e8588f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RobinHood: {fileID: 2010491355}
-  m_Gorilla: {fileID: 224245300}
-  m_AppleTree: {fileID: 577250764}
-  m_Cloud: {fileID: 1192288527}
-  m_FireFly: {fileID: 1329075020}
-  m_Bird: {fileID: 1171420868}
   m_Commons:
     jumpForce: 7
     runSpeed: 240
     flySpeed: {x: 240, y: 200}
+  m_Characters:
+  - {fileID: 2010491355}
+  - {fileID: 224245300}
+  - {fileID: 1171420868}
+  - {fileID: 1192288527}
+  - {fileID: 1329075020}
+  - {fileID: 577250764}
+  m_Main: {fileID: 2010491355}
   m_CharacterAvatars: {fileID: 196748628}
 --- !u!114 &694600322
 MonoBehaviour:
@@ -1497,10 +1505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: -5020916352839589147, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: -70617635578213691, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: 4401139226272657819, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 1329075020}
-  m_AviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_UnaviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &715196386
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1613,10 +1623,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: -6795861180184562732, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: -6288941428983957989, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: -7742553781433019944, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 1171420868}
-  m_AviableColor: {r: 1, g: 1, b: 1, a: 0}
-  m_UnaviableColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
-  m_HoverColor: {r: 0.9339623, g: 0.8987441, b: 0.2790138, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &748139287
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1780,10 +1792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: -5539862915233658431, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: -6165237067000676545, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: 3887404833212438664, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 1192288527}
-  m_AviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_UnaviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &1120743297
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2084,7 +2098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171420862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.36, y: -1.73, z: 0}
+  m_LocalPosition: {x: -1.41, y: -1.63, z: 0}
   m_LocalScale: {x: 4.0774, y: 3.2475338, z: 1}
   m_Children:
   - {fileID: 165791056}
@@ -2158,6 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1ae536e625b1d4394f58b25ac27540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 748139286}
   m_CharactersManager: {fileID: 694600321}
   m_GroundLayerMask:
     serializedVersion: 2
@@ -2428,6 +2443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963b49e02bf81444fa050d00ff1fbb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 1120743296}
   m_RainDrop: {fileID: 8393781276313460373, guid: 2bf30e258b072304aba1a1799d2f4066, type: 3}
   m_RainSpawnPoint: {fileID: 118115512}
   m_SpawnRandomness: {x: 0.5, y: 0.1}
@@ -2605,6 +2621,7 @@ GameObject:
   - component: {fileID: 1329075015}
   - component: {fileID: 1329075020}
   - component: {fileID: 1329075021}
+  - component: {fileID: 1329075022}
   m_Layer: 8
   m_Name: FireFly
   m_TagString: Untagged
@@ -2722,7 +2739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329075014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.29, y: -1.11, z: 0}
+  m_LocalPosition: {x: -2.9, y: -1.11, z: 0}
   m_LocalScale: {x: 0.55, y: 0.5065, z: 1}
   m_Children:
   - {fileID: 2107888109}
@@ -2741,6 +2758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64f0d90db5ac6c4faafa03e149a671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 715196385}
 --- !u!114 &1329075021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2759,6 +2777,18 @@ MonoBehaviour:
   m_MaxHealth: 2
   m_HeartsMiddle: {fileID: 2107888109}
   m_SpaceBetweenHearts: 0.1
+--- !u!114 &1329075022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329075014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42bba7d1abd0649a29473ad9e7a8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371492144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,10 +3293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d06b57d89ee14f9579e421b543d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UnlockedSprite: {fileID: -4580580609804769060, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
+  m_LockedSprite: {fileID: -2793320120510694561, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
+  m_BannedSprite: {fileID: -1790459576294555400, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
   m_Character: {fileID: 2010491355}
-  m_AviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_UnaviableColor: {r: 0, g: 0, b: 0, a: 0}
-  m_HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  m_Unlocked: 1
+  m_Banned: 0
 --- !u!58 &1960115740
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3497,6 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c07c44797fe554598e5b2593a5953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 1960115739}
   m_Bow: {fileID: 556962510}
 --- !u!114 &2010491356
 MonoBehaviour:

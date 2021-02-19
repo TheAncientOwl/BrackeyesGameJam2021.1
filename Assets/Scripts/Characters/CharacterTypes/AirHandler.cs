@@ -7,7 +7,7 @@ namespace Characters.CharacterTypes
     {
         public FlyManager FlyManager { get; private set; }
 
-        public void Init(CharacterManager character) => FlyManager = character.gameObject.GetComponent<FlyManager>();
+        public AirHandler(CharacterManager character) => FlyManager = character.gameObject.GetComponent<FlyManager>();
 
         public void Enable() => FlyManager.enabled = true;
 
