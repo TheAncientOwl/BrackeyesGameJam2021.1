@@ -638,8 +638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: 188180499001535768, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: -5962422375273434724, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: -6891972328530412067, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: -7811435332022233849, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: 5137842026646007770, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 577250764}
   m_Unlocked: 1
 --- !u!58 &250100086
@@ -755,8 +755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: 4006001496492205324, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: 7723580914479926077, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: 4768187136420586140, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: 3260205593796706009, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: 3013080946268344344, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 224245300}
   m_Unlocked: 1
 --- !u!58 &402114780
@@ -1519,8 +1519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: -5020916352839589147, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: -70617635578213691, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: 4401139226272657819, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: 484812828214840939, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: -6647234149300746724, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 1329075020}
   m_Unlocked: 1
 --- !u!58 &715196386
@@ -1636,8 +1636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: -6795861180184562732, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: -6288941428983957989, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: -7742553781433019944, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: -5499594763974612540, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: -3506226967163411873, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 1171420868}
   m_Unlocked: 1
 --- !u!58 &748139287
@@ -1804,8 +1804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: -5539862915233658431, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: -6165237067000676545, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: 3887404833212438664, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: -3372737323450840598, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: -3401841726425179023, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 1192288527}
   m_Unlocked: 1
 --- !u!58 &1120743297
@@ -2653,11 +2653,12 @@ GameObject:
   - component: {fileID: 1329075019}
   - component: {fileID: 1329075018}
   - component: {fileID: 1329075017}
-  - component: {fileID: 1329075016}
   - component: {fileID: 1329075015}
   - component: {fileID: 1329075020}
   - component: {fileID: 1329075021}
   - component: {fileID: 1329075022}
+  - component: {fileID: 1329075023}
+  - component: {fileID: 1329075016}
   m_Layer: 8
   m_Name: FireFly
   m_TagString: Untagged
@@ -2678,7 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FlySmoothing: 0.085
-  m_Speed: {x: 270, y: 160}
+  m_Speed: {x: 290, y: 170}
 --- !u!58 &1329075016
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2692,9 +2693,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.12
 --- !u!50 &1329075017
 Rigidbody2D:
   serializedVersion: 4
@@ -2756,8 +2757,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  m_Color: {r: 0.83617574, g: 0.8962264, b: 0.056366343, a: 1}
+  m_Sprite: {fileID: 1987536751287241573, guid: 146ac43f8bcd1e6438d723316806a5f2, type: 3}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2775,8 +2776,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329075014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9, y: -1.11, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.5065, z: 1}
+  m_LocalPosition: {x: -2.98, y: -1.23, z: 0}
+  m_LocalScale: {x: 2.2314935, y: 1.9078078, z: 1}
   m_Children:
   - {fileID: 2107888109}
   m_Father: {fileID: 694600320}
@@ -2825,6 +2826,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42bba7d1abd0649a29473ad9e7a8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1329075023
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329075014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25b84d71251e6974886049ecbe6bbb78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1371492144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,8 +3350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UnlockedSprite: {fileID: -4580580609804769060, guid: 2dbd56dc15e66de449826ca461ddcfac, type: 3}
-  m_LockedSprite: {fileID: -2793320120510694561, guid: 6c071596e5558dc4db42a92e26f384fb, type: 3}
-  m_BannedSprite: {fileID: -1790459576294555400, guid: ecbe351f2d4ad744b95580fd61a49bd6, type: 3}
+  m_LockedSprite: {fileID: 2895294561826247450, guid: 888f7504bfcde944dafe1493c30058b1, type: 3}
+  m_BannedSprite: {fileID: 6674224662423985272, guid: aa47d7572dacf9a4bb0426df157e32d5, type: 3}
   m_CharacterManager: {fileID: 2010491355}
   m_Unlocked: 1
 --- !u!58 &1960115740
@@ -3669,7 +3689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107888108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.101, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0.073, y: 0.152, z: 0}
   m_LocalScale: {x: 4.513837, y: 5.269457, z: 1}
   m_Children: []
   m_Father: {fileID: 1329075019}

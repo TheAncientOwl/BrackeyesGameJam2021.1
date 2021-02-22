@@ -20,12 +20,13 @@ namespace Characters.Main.Bird
         private Rigidbody2D m_Rigidbody2D;
         private BoxCollider2D m_BoxCollider2D;
 
+        private void Awake() => State = BirdState.InAir;
+
         private void Start()
         {
             m_BirdManager = GetComponent<BirdManager>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_BoxCollider2D = GetComponent<BoxCollider2D>();
-            State = BirdState.InAir;
         }
 
         private void Update()

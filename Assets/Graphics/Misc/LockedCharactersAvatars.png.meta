@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: ecbe351f2d4ad744b95580fd61a49bd6
+guid: 888f7504bfcde944dafe1493c30058b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7742553781433019944
-    second: BannedCharacterAvatars_0
+      213: -5499594763974612540
+    second: LockedCharactersAvatars_0
   - first:
-      213: -6891972328530412067
-    second: BannedCharacterAvatars_1
+      213: -7811435332022233849
+    second: LockedCharactersAvatars_1
   - first:
-      213: 4768187136420586140
-    second: BannedCharacterAvatars_2
+      213: 3260205593796706009
+    second: LockedCharactersAvatars_2
   - first:
-      213: -1790459576294555400
-    second: BannedCharacterAvatars_3
+      213: 2895294561826247450
+    second: LockedCharactersAvatars_3
   - first:
-      213: 3887404833212438664
-    second: BannedCharacterAvatars_4
+      213: -3372737323450840598
+    second: LockedCharactersAvatars_4
   - first:
-      213: 4401139226272657819
-    second: BannedCharacterAvatars_5
+      213: 484812828214840939
+    second: LockedCharactersAvatars_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BannedCharacterAvatars_0
+      name: LockedCharactersAvatars_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d1d35b8b5cec8490800000000000000
-      internalID: -7742553781433019944
+      spriteID: 4c9e1b443b38da3b0800000000000000
+      internalID: -5499594763974612540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BannedCharacterAvatars_1
+      name: LockedCharactersAvatars_1
       rect:
         serializedVersion: 2
         x: 27
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd7f14beabca50a0800000000000000
-      internalID: -6891972328530412067
+      spriteID: 70511e8c3f4389390800000000000000
+      internalID: -7811435332022233849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BannedCharacterAvatars_2
+      name: LockedCharactersAvatars_2
       rect:
         serializedVersion: 2
         x: 54
@@ -177,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c92afe800f00c2240800000000000000
-      internalID: 4768187136420586140
+      spriteID: 9de7ef8d6b39e3d20800000000000000
+      internalID: 3260205593796706009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BannedCharacterAvatars_3
+      name: LockedCharactersAvatars_3
       rect:
         serializedVersion: 2
         x: 81
@@ -198,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f0444a60820727e0800000000000000
-      internalID: -1790459576294555400
+      spriteID: a1316c560172e2820800000000000000
+      internalID: 2895294561826247450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BannedCharacterAvatars_4
+      name: LockedCharactersAvatars_4
       rect:
         serializedVersion: 2
         x: 108
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88893c57916d2f530800000000000000
-      internalID: 3887404833212438664
+      spriteID: ae9c20b1641a131d0800000000000000
+      internalID: -3372737323450840598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BannedCharacterAvatars_5
+      name: LockedCharactersAvatars_5
       rect:
         serializedVersion: 2
         x: 135
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91f40ddeccf31d30800000000000000
-      internalID: 4401139226272657819
+      spriteID: b6e4c48d2b66ab600800000000000000
+      internalID: 484812828214840939
       vertices: []
       indices: 
       edges: []
