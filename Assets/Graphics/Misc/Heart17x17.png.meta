@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: cf3cd9269150ce34e82db6e022f02a96
+guid: 179be72e47cd98a408d05f101c865fba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4606908045521496030
-    second: Heart_0
+      213: 4712699117884915799
+    second: Heart17x17_0
   - first:
-      213: -4195582761621981391
-    second: Heart_1
+      213: -4538210487669187716
+    second: Heart17x17_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 17
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart_0
+      name: Heart17x17_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed7a23e75760fef30800000000000000
-      internalID: 4606908045521496030
+      spriteID: 750c3d6f0eed66140800000000000000
+      internalID: 4712699117884915799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_1
+      name: Heart17x17_1
       rect:
         serializedVersion: 2
         x: 17
@@ -144,8 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 137f4cb15bb46c5c0800000000000000
-      internalID: -4195582761621981391
+      spriteID: c7b968e1b990501c0800000000000000
+      internalID: -4538210487669187716
       vertices: []
       indices: 
       edges: []

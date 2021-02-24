@@ -9,7 +9,8 @@ namespace Characters.General
         [SerializeField] private Sprite m_EmptyHeartSprite;
         [SerializeField] private int m_MaxHealth = 0;
         [SerializeField] private Transform m_HeartsMiddle;
-        [SerializeField] private float m_SpaceBetweenHearts = 0f;
+
+        private const float SPACE_BETWEEN_HEARTS = 0.12f;
 
         private SpriteRenderer[] m_SpriteRenderers;
 
@@ -21,14 +22,14 @@ namespace Characters.General
 
             m_SpriteRenderers = new SpriteRenderer[m_Health];
 
-            Vector2 position = new Vector2(m_HeartsMiddle.position.x - m_Health / 2f * m_SpaceBetweenHearts, m_HeartsMiddle.position.y);
+            Vector2 position = new Vector2(m_HeartsMiddle.position.x - m_Health / 2f * SPACE_BETWEEN_HEARTS, m_HeartsMiddle.position.y);
             for (int i = 0; i < m_Health; ++i)
             {
                 GameObject heart = Instantiate(m_SpriteRendererPrefab, position, Quaternion.identity);
                 heart.transform.SetParent(m_HeartsMiddle);
                 m_SpriteRenderers[i] = heart.GetComponent<SpriteRenderer>();
                 m_SpriteRenderers[i].sprite = m_FullHeartSprite;
-                position.x += m_SpaceBetweenHearts;
+                position.x += SPACE_BETWEEN_HEARTS;
             }
         }
 

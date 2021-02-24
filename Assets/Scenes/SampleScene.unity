@@ -609,11 +609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 5
   m_HeartsMiddle: {fileID: 1601106272}
-  m_SpaceBetweenHearts: 0.1
 --- !u!61 &224245304
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1268,11 +1267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 2
   m_HeartsMiddle: {fileID: 1137837581}
-  m_SpaceBetweenHearts: 0.1
 --- !u!1 &603820802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,10 +2895,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1152964137}
   - component: {fileID: 1152964141}
-  - component: {fileID: 1152964142}
-  - component: {fileID: 1152964139}
   - component: {fileID: 1152964138}
   - component: {fileID: 1152964140}
+  - component: {fileID: 1152964139}
   m_Layer: 6
   m_Name: GroundAppleTree
   m_TagString: Untagged
@@ -2916,7 +2913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152964136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.852, y: -3.45, z: 0}
+  m_LocalPosition: {x: -8.98, y: -3.33, z: 0}
   m_LocalScale: {x: 1.25, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1674387109}
@@ -2942,8 +2939,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1152964139
-BoxCollider2D:
+--- !u!58 &1152964139
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2955,19 +2952,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00469774, y: -0.0865197}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.00000023841858, y: 0.1}
   serializedVersion: 2
-  m_Size: {x: 0.20060453, y: 0.0476171}
-  m_EdgeRadius: 0
+  m_Radius: 0.36
 --- !u!114 &1152964140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,22 +3027,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1152964142
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152964136}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: 0.03}
-  serializedVersion: 2
-  m_Radius: 0.08
 --- !u!1 &1171420862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3165,11 +3136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 3
   m_HeartsMiddle: {fileID: 2020643580}
-  m_SpaceBetweenHearts: 0.1
 --- !u!50 &1171420866
 Rigidbody2D:
   serializedVersion: 4
@@ -3561,11 +3531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 3
   m_HeartsMiddle: {fileID: 417561639}
-  m_SpaceBetweenHearts: 0.1
 --- !u!1 &1280552652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,11 +3893,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 2
   m_HeartsMiddle: {fileID: 2107888109}
-  m_SpaceBetweenHearts: 0.1
 --- !u!114 &1329075022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4066,7 +4034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371492144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.022, y: 0.233, z: 0}
+  m_LocalPosition: {x: 0.022, y: 0.507, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2010491350}
@@ -4339,7 +4307,6 @@ GameObject:
   - component: {fileID: 1674387109}
   - component: {fileID: 1674387112}
   - component: {fileID: 1674387110}
-  - component: {fileID: 1674387111}
   m_Layer: 6
   m_Name: Cart
   m_TagString: Untagged
@@ -4354,8 +4321,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674387108}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.186, y: -0.0809, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.694, y: 0.002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1152964137}
@@ -4374,44 +4341,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0005906373, y: -0.015260767}
+  m_Offset: {x: 0.0025502741, y: -0.3598022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.19, y: 0.07}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15219876, y: 0.039478473}
-  m_EdgeRadius: 0
---- !u!61 &1674387111
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674387108}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.020810165}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.19, y: 0.07}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.19, y: 0.028379666}
+  m_Size: {x: 0.7602752, y: 0.28039563}
   m_EdgeRadius: 0
 --- !u!212 &1674387112
 SpriteRenderer:
@@ -4453,7 +4394,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a8be74b88a0ee449a240616c060082a, type: 3}
+  m_Sprite: {fileID: -818657957845631656, guid: aeffa4ef4eadbdb4c9f29ca9f8e55cf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4461,7 +4402,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1884344837
@@ -4871,11 +4812,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRendererPrefab: {fileID: 3851488085228420796, guid: e5862dc7eecfb01499c3b84691fbaf45, type: 3}
-  m_FullHeartSprite: {fileID: 4606908045521496030, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
-  m_EmptyHeartSprite: {fileID: -4195582761621981391, guid: cf3cd9269150ce34e82db6e022f02a96, type: 3}
+  m_FullHeartSprite: {fileID: 4712699117884915799, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
+  m_EmptyHeartSprite: {fileID: -4538210487669187716, guid: 179be72e47cd98a408d05f101c865fba, type: 3}
   m_MaxHealth: 4
   m_HeartsMiddle: {fileID: 1371492145}
-  m_SpaceBetweenHearts: 0.1
 --- !u!1 &2020643579
 GameObject:
   m_ObjectHideFlags: 0
