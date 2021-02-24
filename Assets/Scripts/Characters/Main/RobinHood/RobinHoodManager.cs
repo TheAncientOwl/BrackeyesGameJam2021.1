@@ -27,7 +27,7 @@ namespace Characters.Main.RobinHood
 
         private void TryMechanic()
         {
-            if (m_IsMain && Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0f)
+            if (m_IsMain && Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0f && m_GroundHandler.JumpManager.IsGrounded())
             {
                 m_ShootMode = !m_ShootMode;
                 m_Bow.SetActive(m_ShootMode);
