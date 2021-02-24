@@ -1,5 +1,6 @@
 using UnityEngine;
 using Characters.CharacterTypes;
+using Characters.Movement;
 
 namespace Characters.Main.RobinHood
 {
@@ -11,12 +12,16 @@ namespace Characters.Main.RobinHood
         private static readonly int s_JUMP  = Animator.StringToHash("Jump");
         private static readonly int s_FALL  = Animator.StringToHash("Fall");
 
-        [SerializeField] private GameObject m_Bow;
+        [SerializeField] private GameObject m_BowObj;
+        private Bow m_Bow;
+        private SpriteFlipper m_SpriteFlipper;
         private bool m_ShootMode = false;
 
         private void Start()
         {
-            m_Bow.SetActive(false);
+            m_SpriteFlipper = GetComponent<SpriteFlipper>();
+            m_Bow = m_BowObj.GetComponent<Bow>();
+            m_BowObj.SetActive(false);
         }
 
         private void Update()
@@ -30,11 +35,20 @@ namespace Characters.Main.RobinHood
             if (m_IsMain && Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0f && m_GroundHandler.JumpManager.IsGrounded())
             {
                 m_ShootMode = !m_ShootMode;
-                m_Bow.SetActive(m_ShootMode);
                 if (m_ShootMode)
+                {
+                    if (m_SpriteFlipper.FacingRight())
+                        m_Bow.ForceFacingRight();
+                    else
+                        m_Bow.ForceFacingLeft();
+                    m_BowObj.SetActive(true);
                     DisableMovement();
+                }
                 else
+                {
+                    m_BowObj.SetActive(false);
                     EnableMovement();
+                }
             }
         }
 
@@ -50,7 +64,7 @@ namespace Characters.Main.RobinHood
         public override void DisableSpecialMechanics()
         {
             m_ShootMode = false;
-            m_Bow.SetActive(false);
+            m_BowObj.SetActive(false);
         }
 
         public override void EnableSpecialMechanics()

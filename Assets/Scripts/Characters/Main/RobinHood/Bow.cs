@@ -16,6 +16,8 @@ namespace Characters.Main.RobinHood
         private Camera m_Camera;
         private Vector2 m_Direction;
 
+        private bool m_FacingRight = true;
+
         private void Awake() => m_Camera = Camera.main;
 
         private void Start()
@@ -66,6 +68,24 @@ namespace Characters.Main.RobinHood
                 foreach (var point in m_Points)
                     if (point != null)
                         point.SetActive(false);
+        }
+
+        public void ForceFacingRight()
+        {
+            m_FacingRight = true;
+            Vector3 scale = transform.localScale;
+            if (scale.x < 0)
+                scale.x *= -1;
+            transform.localScale = scale;
+        }
+
+        public void ForceFacingLeft()
+        {
+            m_FacingRight = false;
+            Vector3 scale = transform.localScale;
+            if (scale.x > 0)
+                scale.x *= -1;
+            transform.localScale = scale;
         }
     }
 }
