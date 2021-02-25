@@ -1,8 +1,8 @@
 using UnityEngine;
-using Characters.General;
 
 namespace Characters.CharacterTypes.Air
 {
+    [RequireComponent(typeof(Movement.FlyManager))]
     public abstract class AirCharacter : Character
     {
         protected AirHandler m_AirHandler;
@@ -21,7 +21,7 @@ namespace Characters.CharacterTypes.Air
             m_Rigidbody2D.velocity = Vector2.zero;
         }
 
-        public override void SetCommonMovement(Commons commons) => m_AirHandler.SetCommon(commons);
+        public override void SetCommonMovement(General.Commons commons) => m_AirHandler.SetCommon(commons);
 
         public override void SetNormalMovement() => m_AirHandler.SetNormal();
 

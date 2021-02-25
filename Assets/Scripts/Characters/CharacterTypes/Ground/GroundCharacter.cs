@@ -1,8 +1,9 @@
 using UnityEngine;
-using Characters.General;
 
 namespace Characters.CharacterTypes.Ground
 {
+    [RequireComponent(typeof(Movement.RunManager))]
+    [RequireComponent(typeof(Movement.JumpManager))]
     public abstract class GroundCharacter : Character
     {
         protected GroundHandler m_GroundHandler;
@@ -21,7 +22,7 @@ namespace Characters.CharacterTypes.Ground
             m_Rigidbody2D.velocity = Vector2.zero;
         }
 
-        public override void SetCommonMovement(Commons commons) => m_GroundHandler.SetCommon(commons);
+        public override void SetCommonMovement(General.Commons commons) => m_GroundHandler.SetCommon(commons);
 
         public override void SetNormalMovement() => m_GroundHandler.SetNormal();
 

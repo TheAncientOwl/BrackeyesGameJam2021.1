@@ -1,5 +1,4 @@
 using Characters.Movement;
-using Characters.General;
 
 namespace Characters.CharacterTypes.Ground
 {
@@ -28,7 +27,7 @@ namespace Characters.CharacterTypes.Ground
             JumpManager.enabled = false;
         }
 
-        public void SetCommon(Commons commons)
+        public void SetCommon(General.Commons commons)
         {
             RunManager.SetRunSpeed(commons.runSpeed);
             JumpManager.SetJumpForce(commons.jumpForce);

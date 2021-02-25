@@ -1,5 +1,4 @@
 using Characters.Movement;
-using Characters.General;
 
 namespace Characters.CharacterTypes.Air
 {
@@ -13,7 +12,7 @@ namespace Characters.CharacterTypes.Air
 
         public void Disable() => FlyManager.enabled = false;
 
-        public void SetCommon(Commons commons) => FlyManager.SetSpeed(commons.flySpeed);
+        public void SetCommon(General.Commons commons) => FlyManager.SetSpeed(commons.flySpeed);
 
         public void SetNormal() => FlyManager.SetDefaultSpeed();
     }
