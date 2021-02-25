@@ -5,16 +5,10 @@ namespace Characters.Main.AppleTree
 {
     public class OnCartAppleTree : GroundCharacter
     {
-        [SerializeField] private AppleTreeTypeSwitcher m_VariantChooser;
+        [SerializeField] private AppleTreeTypeSwitcher m_TypeSwitcher;
 
-        public override void DisableSpecialMechanics()
-        {
-            m_VariantChooser.enabled = false;
-        }
+        public override void DisableSpecialMechanics() => m_TypeSwitcher.enabled = false;
 
-        public override void EnableSpecialMechanics()
-        {
-            m_VariantChooser.enabled = true;
-        }
+        public override void EnableSpecialMechanics() => m_TypeSwitcher.enabled = true;
     }
 }

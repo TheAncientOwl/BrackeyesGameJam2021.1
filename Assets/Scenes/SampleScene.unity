@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7fcc59e2d54047bb8298feaf8fa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_VariantChooser: {fileID: 603820804}
+  m_TypeSwitcher: {fileID: 603820804}
 --- !u!114 &577250765
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ namespace Characters.Main.AppleTree
                     else
                     {
                         m_OnGroundVariant.SetActive(false);
-                        m_OnCartVariant.GetComponent<Transform>().position = m_OnGroundVariant.GetComponent<Transform>().position;
+                        m_OnCartVariant.GetComponent<Transform>().position = m_OnGroundVariant.transform.position;
                         m_OnCartVariant.SetActive(true);
                         m_OnCart = !m_OnCart;
                     }

@@ -3,6 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.General
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterAvatar : MonoBehaviour
     {
         [SerializeField] private SpritePack m_Sprites;
