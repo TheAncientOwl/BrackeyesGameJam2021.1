@@ -10,7 +10,6 @@ namespace Characters.General
     public class SwitchMenu : MonoBehaviour
     {
         [SerializeField] private GameObject m_AvatarsObj;
-        [SerializeField] private CharactersManager m_CharactersManager;
         private AvatarClicker m_AvatarClicker;
 
         public bool IsOn { get => this.enabled; private set{} }
@@ -27,9 +26,9 @@ namespace Characters.General
             this.enabled = enabled;
             m_AvatarsObj.SetActive(enabled);
             if (enabled)
-                m_CharactersManager.GetMain().DisableSpecialMechanics();
+                CharactersManager.Instance.GetMain().DisableSpecialMechanics();
             else
-                m_CharactersManager.GetMain().EnableSpecialMechanics();
+                CharactersManager.Instance.GetMain().EnableSpecialMechanics();
         }
 
         public void Enable() => SetEnabled(true);
@@ -43,7 +42,7 @@ namespace Characters.General
                 Character newMain = m_AvatarClicker.ExtractLastClicked();
                 if (newMain != null)
                 {
-                    m_CharactersManager.SetMain(newMain);
+                    CharactersManager.Instance.SetMain(newMain);
                     Disable();
                 }
             }

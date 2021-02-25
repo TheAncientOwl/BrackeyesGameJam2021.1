@@ -11,6 +11,10 @@ namespace Characters.General
 
         private bool m_CanSwitch = true;
 
+        public static CharactersManager Instance { get; private set; }
+
+        private void Awake() => Instance = this;
+
         private void Start()
         {
             foreach (var character in m_Characters)
