@@ -76,4 +76,9 @@ namespace Characters.Main.Bird
             Gizmos.DrawWireCube(m_GroundCheckPoint.transform.position, m_GroundCheckSize);
         }
     }
+
+    public enum BirdState
+    {
+        Grounded, InAir
+    }
 }
