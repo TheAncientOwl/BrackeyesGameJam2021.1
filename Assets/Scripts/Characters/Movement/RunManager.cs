@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Characters.Movement
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class RunManager : MonoBehaviour
     {
         [SerializeField] private float m_MovementSmoothing = 0.085f;

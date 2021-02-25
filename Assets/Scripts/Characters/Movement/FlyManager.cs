@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Characters.Movement
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class FlyManager : MonoBehaviour
     {
         [SerializeField] private float m_FlySmoothing = 0.085f;

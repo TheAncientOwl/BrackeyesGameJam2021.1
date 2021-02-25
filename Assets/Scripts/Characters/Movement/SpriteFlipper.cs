@@ -3,6 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Movement
 {
+    [RequireComponent(typeof(Character))]
     public class SpriteFlipper : MonoBehaviour
     {
         private Character m_Character;

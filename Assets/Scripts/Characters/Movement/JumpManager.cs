@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Characters.Movement
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(BoxCollider2D))]
     public class JumpManager : MonoBehaviour
     {
         [SerializeField] private float m_JumpForce = 7f;
