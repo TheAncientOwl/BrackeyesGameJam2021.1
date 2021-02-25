@@ -5,13 +5,11 @@ namespace Characters.General
 {
     public class CharacterAvatar : MonoBehaviour
     {
-        [SerializeField] private Sprite m_UnlockedSprite;
-        [SerializeField] private Sprite m_LockedSprite;
-        [SerializeField] private Sprite m_BannedSprite;
-        [SerializeField] private Character m_CharacterManager;
+        [SerializeField] private SpritePack m_Sprites;
+        [SerializeField] private Character m_Character;
         [SerializeField] private bool m_Unlocked = true;
-        
-        private bool m_Banned = false;
+        [SerializeField] private bool m_Banned = false;
+
         private SpriteRenderer m_SpriteRenderer;
 
         private void Awake() => m_SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,13 +21,10 @@ namespace Characters.General
         public void SetBanned(bool banned)
         {
             m_Banned = banned;
-            if (m_Banned)
-                m_SpriteRenderer.sprite = m_BannedSprite;
-            else
-                m_SpriteRenderer.sprite = m_Unlocked ? m_UnlockedSprite : m_LockedSprite;
+            m_SpriteRenderer.sprite = m_Banned ? m_Sprites.banned : (m_Unlocked ? m_Sprites.unlocked : m_Sprites.locked);
         }
 
-        public Character GetCharacterManager() => m_CharacterManager;
+        public Character GetCharacterManager() => m_Character;
 
         public bool CanBeChoosed() => m_Unlocked && !m_Banned;
     }

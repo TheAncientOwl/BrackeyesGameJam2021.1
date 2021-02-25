@@ -4,14 +4,13 @@ using Characters.CharacterTypes;
 
 namespace Characters.General
 {
-    public class CharactersClicker : MonoBehaviour
+    public class AvatarClicker : MonoBehaviour
     {
         private readonly HashSet<GameObject> m_Selection = new HashSet<GameObject>();
         private Character m_Clicked = null;
-
         private Camera m_Camera;
 
-        private void Start() => m_Camera = Camera.main;
+        private void Awake() => m_Camera = Camera.main;
 
         private void OnEnable()
         {
@@ -39,6 +38,7 @@ namespace Characters.General
                 }
             }
         }
+        public HashSet<GameObject> GetSelection() => m_Selection;
 
         public bool Clicked() => m_Clicked != null;
 
@@ -48,7 +48,5 @@ namespace Characters.General
             m_Clicked = null;
             return obj;
         }
-
-        public HashSet<GameObject> GetSelection() => m_Selection;
     }
 }

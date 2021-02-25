@@ -10,7 +10,6 @@ namespace Characters.General
         [SerializeField] private Character m_Main;
 
         private bool m_CanSwitch = true;
-        private CharacterSwitcher m_CharacterSwitch;
 
         private void Start()
         {
@@ -19,8 +18,7 @@ namespace Characters.General
 
             m_Main.SetMain(true);
 
-            m_CharacterSwitch = GetComponent<CharacterSwitcher>();
-            m_CharacterSwitch.enabled = false;
+            SwitchMenu.Instance.Disable();
         }
 
         private void Update()
@@ -30,20 +28,24 @@ namespace Characters.General
             else if (Input.GetKeyDown(KeyCode.L)) 
                 GoSeparate();
 
+            CheckSwitch();
+        }
+
+        private void CheckSwitch()
+        {
             if (m_CanSwitch)
             {
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
-                    if (!m_CharacterSwitch.enabled)
-                        m_CharacterSwitch.enabled = true;
+                    if (!SwitchMenu.Instance.IsOn)
+                        SwitchMenu.Instance.Enable();
                 }
-                else if(Input.GetKeyUp(KeyCode.LeftShift))
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
                 {
-                    if (m_CharacterSwitch.enabled)
-                        m_CharacterSwitch.enabled = false;
+                    if (SwitchMenu.Instance.IsOn)
+                        SwitchMenu.Instance.Disable();
                 }
             }
-
         }
 
         public void SetMain(Character newMain)
