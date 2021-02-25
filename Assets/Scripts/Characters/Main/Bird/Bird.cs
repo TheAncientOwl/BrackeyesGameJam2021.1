@@ -65,12 +65,12 @@ namespace Characters.Main.Bird
 
         public override float GetHorizontalDirection()
         {
-            return m_StateChanger.State switch
+            switch (m_StateChanger.State)
             {
-                BirdState.InAir => AirHandler.FlyManager.GetHorizontalDirection(),
-                BirdState.Grounded => GroundHandler.RunManager.GetDirection(),
-                _ => 0f,
-            };
+                case BirdState.InAir: return AirHandler.FlyManager.GetHorizontalDirection();
+                case BirdState.Grounded: return GroundHandler.RunManager.GetDirection();
+            }
+            return 0f;
         }
 
         public override void DisableSpecialMechanics() => m_PlaneMode.enabled = false;

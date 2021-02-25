@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Avatar: {fileID: 402114779}
   m_PunchHitBox: {x: 0.5, y: 0.34}
-  m_PunchHitBoxOffset: {x: 0.4, y: 0.15}
+  m_PunchHitBoxOffset: {x: 0.46, y: -0.12}
   m_BreakableObjectsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
