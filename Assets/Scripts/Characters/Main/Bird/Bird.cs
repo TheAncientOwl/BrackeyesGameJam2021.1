@@ -8,10 +8,6 @@ namespace Characters.Main.Bird
 {
     public class Bird : Character
     {
-        private static readonly int s_FLY = Animator.StringToHash("Fly");
-        private static readonly int s_IDLE = Animator.StringToHash("Idle");
-        private static readonly int s_Walk = Animator.StringToHash("Walk");
-
         private BirdStateSwitcher m_StateChanger;
         private PlaneMode m_PlaneMode;
 
@@ -37,16 +33,16 @@ namespace Characters.Main.Bird
             {
                 case BirdState.InAir:
                 {
-                    m_Animator.SetBool(s_FLY, true);
-                    m_Animator.SetBool(s_Walk, false);
-                    m_Animator.SetBool(s_IDLE, false);
+                    m_Animator.SetBool(AnimatorHashes.FLY, true);
+                    m_Animator.SetBool(AnimatorHashes.IDLE, false);
+                    m_Animator.SetBool(AnimatorHashes.WALK, false);
                     break;
                 }
                 case BirdState.Grounded:
                 {
-                    m_Animator.SetBool(s_FLY, false);
-                    m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
-                    m_Animator.SetBool(s_Walk, GetHorizontalDirection() != 0f);
+                    m_Animator.SetBool(AnimatorHashes.FLY, false);
+                    m_Animator.SetBool(AnimatorHashes.IDLE, GetHorizontalDirection() == 0f);
+                    m_Animator.SetBool(AnimatorHashes.WALK, GetHorizontalDirection() != 0f);
                     break;
                 }
             }

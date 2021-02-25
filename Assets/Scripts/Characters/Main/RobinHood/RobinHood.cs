@@ -7,12 +7,6 @@ namespace Characters.Main.RobinHood
     [RequireComponent(typeof(SpriteFlipper))]
     public class RobinHood : GroundCharacter
     {
-        private static readonly int s_IDLE  = Animator.StringToHash("Idle");
-        private static readonly int s_SHOOT = Animator.StringToHash("Shoot");
-        private static readonly int s_WALK  = Animator.StringToHash("Walk");
-        private static readonly int s_JUMP  = Animator.StringToHash("Jump");
-        private static readonly int s_FALL  = Animator.StringToHash("Fall");
-
         [SerializeField] private GameObject m_BowObj;
         private Bow m_Bow;
         private SpriteFlipper m_SpriteFlipper;
@@ -55,11 +49,11 @@ namespace Characters.Main.RobinHood
 
         private void SetAnimation()
         {
-            m_Animator.SetBool(s_JUMP, m_Rigidbody2D.velocity.y > 0f);
-            m_Animator.SetBool(s_FALL, m_Rigidbody2D.velocity.y < 0f);
-            m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
-            m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
-            m_Animator.SetBool(s_SHOOT, m_ShootMode);
+            m_Animator.SetBool(AnimatorHashes.JUMP, m_Rigidbody2D.velocity.y > 0f);
+            m_Animator.SetBool(AnimatorHashes.FALL, m_Rigidbody2D.velocity.y < 0f);
+            m_Animator.SetBool(AnimatorHashes.IDLE, GetHorizontalDirection() == 0f);
+            m_Animator.SetBool(AnimatorHashes.WALK, GetHorizontalDirection() != 0f);
+            m_Animator.SetBool(AnimatorHashes.SHOOT, m_ShootMode);
         }
 
         public override void DisableSpecialMechanics()

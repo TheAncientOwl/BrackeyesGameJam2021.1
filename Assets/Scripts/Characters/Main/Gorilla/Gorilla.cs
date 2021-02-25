@@ -6,13 +6,6 @@ namespace Characters.Main.Gorilla
 {
     public class Gorilla : GroundCharacter
     {
-        private static readonly int s_IDLE = Animator.StringToHash("Idle");
-        private static readonly int s_WALK = Animator.StringToHash("Walk");
-        private static readonly int s_JUMP = Animator.StringToHash("Jump");
-        private static readonly int s_FALL = Animator.StringToHash("Fall");
-        private static readonly int s_LEFT_PUNCH = Animator.StringToHash("LeftPunch");
-        private static readonly int s_RIGHT_PUNCH = Animator.StringToHash("RightPunch");
-
         [SerializeField] private Vector2 m_PunchHitBox = Vector2.zero;
         [SerializeField] private Vector2 m_PunchHitBoxOffset = Vector2.zero;
         [SerializeField] private LayerMask m_BreakableObjectsLayerMask;
@@ -36,7 +29,7 @@ namespace Characters.Main.Gorilla
         {
             if (m_IsMain && Input.GetKeyDown(KeyCode.Space) && GetHorizontalDirection() == 0f && m_GroundHandler.JumpManager.IsGrounded())
             {
-                m_Animator.SetTrigger(m_LeftPunch ? s_LEFT_PUNCH : s_RIGHT_PUNCH);
+                m_Animator.SetTrigger(m_LeftPunch ? AnimatorHashes.LEFT_PUNCH : AnimatorHashes.RIGHT_PUNCH);
                 m_LeftPunch = !m_LeftPunch;
 
                 RaycastHit2D[] colliders = Physics2D.BoxCastAll
@@ -81,10 +74,10 @@ namespace Characters.Main.Gorilla
 
         private void SetAnimation()
         {
-            m_Animator.SetBool(s_JUMP, m_Rigidbody2D.velocity.y > 0f);
-            m_Animator.SetBool(s_FALL, m_Rigidbody2D.velocity.y < 0f);
-            m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
-            m_Animator.SetBool(s_WALK, GetHorizontalDirection() != 0f);
+            m_Animator.SetBool(AnimatorHashes.JUMP, m_Rigidbody2D.velocity.y > 0f);
+            m_Animator.SetBool(AnimatorHashes.FALL, m_Rigidbody2D.velocity.y < 0f);
+            m_Animator.SetBool(AnimatorHashes.IDLE, GetHorizontalDirection() == 0f);
+            m_Animator.SetBool(AnimatorHashes.WALK, GetHorizontalDirection() != 0f);
         }
 
         public override void DisableSpecialMechanics()

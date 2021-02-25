@@ -6,8 +6,6 @@ namespace Characters.Main.AppleTree
     [RequireComponent(typeof(Animator))]
     public class OnGroundAppleTree : MonoBehaviour
     {
-        private static readonly int s_GO = Animator.StringToHash("go");
-
         [SerializeField] private float m_WaitTime = 0.5f;
         [SerializeField] private int m_HealFactor = 2;
         [SerializeField] private Health[] m_CharactersHealth;
@@ -43,7 +41,7 @@ namespace Characters.Main.AppleTree
                 m_Timer = 0f;
                 m_CurrentPhase++;
                 if (m_CurrentPhase < MAX_PHASES)
-                    m_Animator.SetTrigger(s_GO);
+                    m_Animator.SetTrigger(AnimatorHashes.GO);
                 else if (!m_Healed)
                 {
                     m_Healed = true;
