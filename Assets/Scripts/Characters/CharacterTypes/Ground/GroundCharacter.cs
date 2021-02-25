@@ -1,7 +1,7 @@
 using UnityEngine;
 using Characters.General;
 
-namespace Characters.CharacterTypes
+namespace Characters.CharacterTypes.Ground
 {
     public abstract class GroundCharacter : Character
     {

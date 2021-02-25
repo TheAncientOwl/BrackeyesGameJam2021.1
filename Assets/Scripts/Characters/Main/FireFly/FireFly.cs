@@ -1,5 +1,5 @@
 using UnityEngine;
-using Characters.CharacterTypes;
+using Characters.CharacterTypes.Air;
 
 namespace Characters.Main.FireFly
 {

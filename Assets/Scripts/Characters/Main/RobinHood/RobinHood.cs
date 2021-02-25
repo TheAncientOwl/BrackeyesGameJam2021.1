@@ -1,5 +1,5 @@
 using UnityEngine;
-using Characters.CharacterTypes;
+using Characters.CharacterTypes.Ground;
 using Characters.Movement;
 
 namespace Characters.Main.RobinHood

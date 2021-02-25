@@ -1,8 +1,7 @@
-using UnityEngine;
 using Characters.Movement;
 using Characters.General;
 
-namespace Characters.CharacterTypes
+namespace Characters.CharacterTypes.Air
 {
     public class AirHandler
     {

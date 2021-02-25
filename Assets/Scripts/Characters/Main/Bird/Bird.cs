@@ -1,4 +1,6 @@
 using UnityEngine;
+using Characters.CharacterTypes.Ground;
+using Characters.CharacterTypes.Air;
 using Characters.CharacterTypes;
 using Characters.General;
 
