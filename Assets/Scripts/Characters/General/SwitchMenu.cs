@@ -17,17 +17,7 @@ namespace Characters.General
 
         public static SwitchMenu Instance { get; private set; }
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-        }
+        private void Awake() => Instance = this;
 
         private void Start() => m_AvatarClicker = GetComponent<AvatarClicker>();
 
