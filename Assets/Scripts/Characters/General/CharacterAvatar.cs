@@ -28,4 +28,12 @@ namespace Characters.General
 
         public bool CanBeChoosed() => m_Unlocked && !m_Banned;
     }
+
+    [System.Serializable]
+    public struct SpritePack
+    {
+        public Sprite locked;
+        public Sprite unlocked;
+        public Sprite banned;
+    }
 }
