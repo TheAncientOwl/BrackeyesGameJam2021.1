@@ -393,13 +393,13 @@ GameObject:
   m_Component:
   - component: {fileID: 224245299}
   - component: {fileID: 224245298}
+  - component: {fileID: 224245301}
   - component: {fileID: 224245297}
   - component: {fileID: 224245304}
   - component: {fileID: 224245296}
   - component: {fileID: 224245295}
   - component: {fileID: 224245294}
   - component: {fileID: 224245300}
-  - component: {fileID: 224245301}
   - component: {fileID: 224245302}
   - component: {fileID: 224245303}
   m_Layer: 8
@@ -558,9 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb5f98d656444747a0a05cc26ab6656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 402114779}
-  m_PunchHitBox: {x: 0.5, y: 0.34}
-  m_PunchHitBoxOffset: {x: 0.46, y: -0.12}
+  m_PunchHitBox: {x: 0.3, y: 0.34}
+  m_PunchHitBoxOffset: {x: 0.51, y: 0.15}
   m_BreakableObjectsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -1225,7 +1224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7fcc59e2d54047bb8298feaf8fa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 250100085}
   m_VariantChooser: {fileID: 603820804}
 --- !u!114 &577250765
 MonoBehaviour:
@@ -1529,7 +1527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AvatarsObj: {fileID: 196748628}
-  m_CharactersManager: {fileID: 694600321}
 --- !u!114 &694600323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,7 +3062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1ae536e625b1d4394f58b25ac27540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 748139286}
 --- !u!95 &1171420869
 Animator:
   serializedVersion: 3
@@ -3360,7 +3356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963b49e02bf81444fa050d00ff1fbb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 1120743296}
   m_RainDrop: {fileID: 8393781276313460373, guid: 2bf30e258b072304aba1a1799d2f4066, type: 3}
   m_RainSpawnPoint: {fileID: 118115512}
   m_SpawnRandomness: {x: 0.5, y: 0.1}
@@ -3757,7 +3752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64f0d90db5ac6c4faafa03e149a671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 715196385}
 --- !u!114 &1329075021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4646,7 +4640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c07c44797fe554598e5b2593a5953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Avatar: {fileID: 1960115739}
   m_BowObj: {fileID: 556962510}
 --- !u!114 &2010491356
 MonoBehaviour:

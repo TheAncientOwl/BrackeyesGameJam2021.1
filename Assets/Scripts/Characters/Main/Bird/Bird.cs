@@ -6,7 +6,10 @@ namespace Characters.Main.Bird
 {
     public class Bird : Character
     {
-        private readonly BirdAnimationHelper m_Animation = new BirdAnimationHelper();
+        private static readonly int s_FLY = Animator.StringToHash("Fly");
+        private static readonly int s_IDLE = Animator.StringToHash("Idle");
+        private static readonly int s_Walk = Animator.StringToHash("Walk");
+
         private BirdStateSwitcher m_StateChanger;
         private PlaneMode m_PlaneMode;
 
@@ -24,7 +27,28 @@ namespace Characters.Main.Bird
             m_PlaneMode = GetComponent<PlaneMode>();
         }
 
-        private void Update() => m_Animation.Set(m_Animator, m_StateChanger.State, GetHorizontalDirection());
+        private void Update() => SetAnimation();
+
+        private void SetAnimation()
+        {
+            switch (m_StateChanger.State)
+            {
+                case BirdState.InAir:
+                {
+                    m_Animator.SetBool(s_FLY, true);
+                    m_Animator.SetBool(s_Walk, false);
+                    m_Animator.SetBool(s_IDLE, false);
+                    break;
+                }
+                case BirdState.Grounded:
+                {
+                    m_Animator.SetBool(s_FLY, false);
+                    m_Animator.SetBool(s_IDLE, GetHorizontalDirection() == 0f);
+                    m_Animator.SetBool(s_Walk, GetHorizontalDirection() != 0f);
+                    break;
+                }
+            }
+        }
 
         public override void EnableMovement()
         {
