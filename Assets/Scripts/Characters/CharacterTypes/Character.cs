@@ -5,8 +5,6 @@ namespace Characters.CharacterTypes
 {
     public abstract class Character : MonoBehaviour
     {
-        [SerializeField] private CharacterAvatar m_Avatar;
-
         protected Rigidbody2D m_Rigidbody2D;
         protected Animator m_Animator;
 
@@ -34,8 +32,6 @@ namespace Characters.CharacterTypes
             }
             m_IsMain = main;
         }
-
-        public CharacterAvatar GetAvatar() => m_Avatar;
 
         public abstract void EnableMovement();
         public abstract void DisableMovement();
