@@ -5,11 +5,12 @@ using Characters.General;
 
 namespace Characters.Main.Bird
 {
+    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(SpriteFlipper))]
     public class PlaneMode : MonoBehaviour
     {
         private const float MINIMIZE_FACTOR = 4f;
 
-        [SerializeField] private CharactersManager m_CharactersManager;
         [SerializeField] private float m_PlaneModeCheckRadius = 0f;
         [SerializeField] private LayerMask m_CharacterLayerMask = 0;
         [SerializeField] private GameObject m_GeneralParent;
@@ -41,7 +42,7 @@ namespace Characters.Main.Bird
 
         private void CollectCharacters()
         {
-            m_CharactersManager.SetCharacterSwitch(false);
+            CharactersManager.Instance.SetCharacterSwitch(false);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_BoxCollider2D.bounds.center, m_PlaneModeCheckRadius, m_CharacterLayerMask);
 
             if (colliders.Length > 0)
@@ -63,7 +64,7 @@ namespace Characters.Main.Bird
 
         private void ReleaseCharacters()
         {
-            m_CharactersManager.SetCharacterSwitch(true);
+            CharactersManager.Instance.SetCharacterSwitch(true);
             foreach (var character in m_Characters)
             {
                 character.transform.localScale *= MINIMIZE_FACTOR;
