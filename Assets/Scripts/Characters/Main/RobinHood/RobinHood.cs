@@ -4,6 +4,7 @@ using Characters.Movement;
 
 namespace Characters.Main.RobinHood
 {
+    [RequireComponent(typeof(SpriteFlipper))]
     public class RobinHood : GroundCharacter
     {
         private static readonly int s_IDLE  = Animator.StringToHash("Idle");
