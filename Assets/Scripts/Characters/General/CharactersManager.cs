@@ -3,11 +3,11 @@ using Characters.CharacterTypes;
 
 namespace Characters.General
 {
-    public class GeneralManager : MonoBehaviour
+    public class CharactersManager : MonoBehaviour
     {
         [SerializeField] private Commons m_Commons = null;
-        [SerializeField] private CharacterManager[] m_Characters;
-        [SerializeField] private CharacterManager m_Main;
+        [SerializeField] private Character[] m_Characters;
+        [SerializeField] private Character m_Main;
 
         private bool m_CanSwitch = true;
         private CharacterSwitcher m_CharacterSwitch;
@@ -46,7 +46,7 @@ namespace Characters.General
 
         }
 
-        public void SetMain(CharacterManager newMain)
+        public void SetMain(Character newMain)
         {
             if (newMain != null)
             {
@@ -57,7 +57,7 @@ namespace Characters.General
             }
         }
 
-        public CharacterManager GetMain() => m_Main;
+        public Character GetMain() => m_Main;
 
         void GoTogether()
         {

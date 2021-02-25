@@ -5,10 +5,10 @@ namespace Characters.Movement
 {
     public class SpriteFlipper : MonoBehaviour
     {
-        private CharacterManager m_Character;
+        private Character m_Character;
         private bool m_FacingRight = true;
 
-        private void Start() => m_Character = GetComponent<CharacterManager>();
+        private void Start() => m_Character = GetComponent<Character>();
 
         private void FixedUpdate()
         {

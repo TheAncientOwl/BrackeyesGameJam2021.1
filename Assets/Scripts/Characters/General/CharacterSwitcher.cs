@@ -7,13 +7,13 @@ namespace Characters.General
     {
         [SerializeField] private GameObject m_CharacterAvatars;
         [SerializeField] private CharactersClicker m_CharactersClicker;
-        [SerializeField] private GeneralManager m_GeneralManager;
+        [SerializeField] private CharactersManager m_CharactersManager;
 
         private void OnEnable()
         {
             m_CharacterAvatars.SetActive(true);
             m_CharactersClicker.enabled = true;
-            m_GeneralManager.GetMain().DisableSpecialMechanics();
+            m_CharactersManager.GetMain().DisableSpecialMechanics();
         }
 
         private void OnDisable()
@@ -21,17 +21,17 @@ namespace Characters.General
             if (m_CharacterAvatars != null)
                 m_CharacterAvatars.SetActive(false);
             m_CharactersClicker.enabled = false;
-            m_GeneralManager.GetMain().EnableSpecialMechanics();
+            m_CharactersManager.GetMain().EnableSpecialMechanics();
         }
 
         private void Update()
         {
             if (m_CharactersClicker.Clicked())
             {
-                CharacterManager newMain = m_CharactersClicker.ExtractLastClicked();
+                Character newMain = m_CharactersClicker.ExtractLastClicked();
                 if (newMain != null)
                 {
-                    m_GeneralManager.SetMain(newMain);
+                    m_CharactersManager.SetMain(newMain);
                     this.enabled = false;
                 }
             }

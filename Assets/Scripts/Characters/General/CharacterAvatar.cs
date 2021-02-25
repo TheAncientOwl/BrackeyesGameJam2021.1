@@ -8,7 +8,7 @@ namespace Characters.General
         [SerializeField] private Sprite m_UnlockedSprite;
         [SerializeField] private Sprite m_LockedSprite;
         [SerializeField] private Sprite m_BannedSprite;
-        [SerializeField] private CharacterManager m_CharacterManager;
+        [SerializeField] private Character m_CharacterManager;
         [SerializeField] private bool m_Unlocked = true;
         
         private bool m_Banned = false;
@@ -29,7 +29,7 @@ namespace Characters.General
                 m_SpriteRenderer.sprite = m_Unlocked ? m_UnlockedSprite : m_LockedSprite;
         }
 
-        public CharacterManager GetCharacterManager() => m_CharacterManager;
+        public Character GetCharacterManager() => m_CharacterManager;
 
         public bool CanBeChoosed() => m_Unlocked && !m_Banned;
     }

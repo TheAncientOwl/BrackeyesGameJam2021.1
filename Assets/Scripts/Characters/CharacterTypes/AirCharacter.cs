@@ -3,7 +3,7 @@ using Characters.General;
 
 namespace Characters.CharacterTypes
 {
-    public abstract class AirCharacterManager : CharacterManager
+    public abstract class AirCharacter : Character
     {
         protected AirHandler m_AirHandler;
 

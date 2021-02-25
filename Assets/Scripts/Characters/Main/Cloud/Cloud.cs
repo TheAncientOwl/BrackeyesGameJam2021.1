@@ -3,7 +3,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.Cloud
 {
-    public class CloudManager : AirCharacterManager
+    public class Cloud : AirCharacter
     {
         [SerializeField] private GameObject m_RainDrop;
         [SerializeField] private Transform m_RainSpawnPoint;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Characters.Main.Bird
 {
-    public class BirdStateChanger : MonoBehaviour
+    public class BirdStateSwitcher : MonoBehaviour
     {
         [SerializeField] private LayerMask m_GroundLayerMask = 0;
         [SerializeField] private GameObject m_GroundCheckPoint = null;
@@ -15,7 +15,7 @@ namespace Characters.Main.Bird
 
         public BirdState State { get; private set; }
 
-        private BirdManager m_BirdManager;
+        private Bird m_BirdManager;
 
         private Rigidbody2D m_Rigidbody2D;
         private BoxCollider2D m_BoxCollider2D;
@@ -24,7 +24,7 @@ namespace Characters.Main.Bird
 
         private void Start()
         {
-            m_BirdManager = GetComponent<BirdManager>();
+            m_BirdManager = GetComponent<Bird>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_BoxCollider2D = GetComponent<BoxCollider2D>();
         }

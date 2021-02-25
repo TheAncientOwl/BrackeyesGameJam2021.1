@@ -3,7 +3,7 @@ using Characters.General;
 
 namespace Characters.CharacterTypes
 {
-    public abstract class GroundCharacterManager : CharacterManager
+    public abstract class GroundCharacter : Character
     {
         protected GroundHandler m_GroundHandler;
 

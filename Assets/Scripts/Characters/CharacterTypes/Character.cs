@@ -3,7 +3,7 @@ using Characters.General;
 
 namespace Characters.CharacterTypes
 {
-    public abstract class CharacterManager : MonoBehaviour
+    public abstract class Character : MonoBehaviour
     {
         [SerializeField] private CharacterAvatar m_Avatar;
 

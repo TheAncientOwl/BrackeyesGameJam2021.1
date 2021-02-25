@@ -3,9 +3,9 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.AppleTree
 {
-    public class AppleTreeManager : GroundCharacterManager
+    public class OnCartAppleTree : GroundCharacter
     {
-        [SerializeField] private VariantChooser m_VariantChooser;
+        [SerializeField] private AppleTreeTypeSwitcher m_VariantChooser;
 
         public override void DisableSpecialMechanics()
         {

@@ -4,7 +4,7 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.Gorilla
 {
-    public class GorillaManager : GroundCharacterManager
+    public class Gorilla : GroundCharacter
     {
         private static readonly int s_IDLE = Animator.StringToHash("Idle");
         private static readonly int s_WALK = Animator.StringToHash("Walk");

@@ -9,7 +9,7 @@ namespace Characters.CharacterTypes
         public RunManager RunManager { get; private set; }
         public JumpManager JumpManager { get; private set; }
 
-        public GroundHandler(CharacterManager character, bool disable = false)
+        public GroundHandler(Character character, bool disable = false)
         {
             RunManager = character.gameObject.GetComponent<RunManager>();
             JumpManager = character.gameObject.GetComponent<JumpManager>();

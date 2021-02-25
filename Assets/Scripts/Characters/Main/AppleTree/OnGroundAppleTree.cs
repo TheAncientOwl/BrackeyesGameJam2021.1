@@ -3,7 +3,7 @@ using Characters.General;
 
 namespace Characters.Main.AppleTree
 {
-    public class AppleMaker : MonoBehaviour
+    public class OnGroundAppleTree : MonoBehaviour
     {
         private static readonly int s_GO = Animator.StringToHash("go");
 

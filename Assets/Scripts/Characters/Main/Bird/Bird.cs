@@ -4,11 +4,11 @@ using Characters.General;
 
 namespace Characters.Main.Bird
 {
-    public class BirdManager : CharacterManager
+    public class Bird : Character
     {
         private readonly BirdAnimationHelper m_Animation = new BirdAnimationHelper();
-        private BirdStateChanger m_StateChanger;
-        private BirdPlaneMechanic m_PlaneMechanic;
+        private BirdStateSwitcher m_StateChanger;
+        private PlaneMode m_PlaneMode;
 
         public AirHandler AirHandler { get; private set; }
         public GroundHandler GroundHandler { get; private set; }
@@ -20,8 +20,8 @@ namespace Characters.Main.Bird
             AirHandler = new AirHandler(this);
             GroundHandler = new GroundHandler(this, disable: true);
 
-            m_StateChanger = GetComponent<BirdStateChanger>();
-            m_PlaneMechanic = GetComponent<BirdPlaneMechanic>();
+            m_StateChanger = GetComponent<BirdStateSwitcher>();
+            m_PlaneMode = GetComponent<PlaneMode>();
         }
 
         private void Update() => m_Animation.Set(m_Animator, m_StateChanger.State, GetHorizontalDirection());
@@ -73,8 +73,8 @@ namespace Characters.Main.Bird
             return 0f;
         }
 
-        public override void DisableSpecialMechanics() => m_PlaneMechanic.enabled = false;
+        public override void DisableSpecialMechanics() => m_PlaneMode.enabled = false;
 
-        public override void EnableSpecialMechanics() => m_PlaneMechanic.enabled = true;
+        public override void EnableSpecialMechanics() => m_PlaneMode.enabled = true;
     }
 }

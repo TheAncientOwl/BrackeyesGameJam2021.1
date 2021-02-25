@@ -3,11 +3,11 @@ using Characters.CharacterTypes;
 
 namespace Characters.Main.AppleTree
 {
-    public class VariantChooser : MonoBehaviour
+    public class AppleTreeTypeSwitcher : MonoBehaviour
     {
         [SerializeField] private GameObject m_OnCartVariant;
         [SerializeField] private GameObject m_OnGroundVariant;
-        [SerializeField] private CharacterManager m_Character;
+        [SerializeField] private Character m_Character;
 
         [SerializeField] private float m_CheckOffset = 1f;
         [SerializeField] private float m_CheckDepth = 1f;

@@ -7,7 +7,7 @@ namespace Characters.General
     public class CharactersClicker : MonoBehaviour
     {
         private readonly HashSet<GameObject> m_Selection = new HashSet<GameObject>();
-        private CharacterManager m_Clicked = null;
+        private Character m_Clicked = null;
 
         private Camera m_Camera;
 
@@ -42,9 +42,9 @@ namespace Characters.General
 
         public bool Clicked() => m_Clicked != null;
 
-        public CharacterManager ExtractLastClicked()
+        public Character ExtractLastClicked()
         {
-            CharacterManager obj = m_Clicked;
+            Character obj = m_Clicked;
             m_Clicked = null;
             return obj;
         }
